@@ -2,8 +2,8 @@
 	"name": "h5bp.docpad",
 	"version": "0.1.0",
 	"private": true,
-	"description": "A DocPad Skeleton useful for Creating Websites. Includes themes for HTML5 Boiler Plate, Initializr, and Twitter Bootstrap.",
-	"homepage": "https://github.com/bevry/h5bp.docpad",
+	"description": "HTML5 Boilerplate skeleton for DocPad. Bare essentials for building a modern website with best practices.",
+	"homepage": "https://github.com/docpad/h5bp.docpad",
 	"keywords": [
 		"docpad-skeleton",
 		"docpad",
@@ -20,11 +20,11 @@
         "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
     ],
 	"bugs": {
-		"url": "https://github.com/bevry/h5bp.docpad/issues"
+		"url": "https://github.com/docpad/h5bp.docpad/issues"
 	},
 	"repository" : {
 		"type" : "git",
-		"url" : "http://github.com/bevry/h5bp.docpad.git"
+		"url" : "http://github.com/docpad/h5bp.docpad.git"
 	},
 	"engines" : {
 		"node": ">=0.4.0"

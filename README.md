@@ -1,4 +1,4 @@
-# [HTML5 Boiler Plate](http://html5boilerplate.com/) skeleton for [DocPad](https://github.com/bevry/docpad)
+# [HTML5 Boilerplate](http://html5boilerplate.com/) skeleton for [DocPad](https://github.com/bevry/docpad)
 Bare essentials for building a modern website with best practices
 
 
