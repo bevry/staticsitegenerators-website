@@ -39,5 +39,6 @@
 		"docpad-plugin-partials": "2.0.x",
 		"docpad-plugin-stylus": "2.0.x",
 		"docpad-plugin-text": "2.0.x"
-	}
+	},
+	"main": "./server.js"
 }
