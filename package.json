@@ -12,13 +12,13 @@
 		"html5 boiler plate",
 		"h5bp"
 	],
-    "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
-    "maintainers": [
-        "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-    ],
-    "contributors": [
-        "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-    ],
+	"author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+	"maintainers": [
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+	],
+	"contributors": [
+		"Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+	],
 	"bugs": {
 		"url": "https://github.com/docpad/html5-boilerplate.docpad/issues"
 	},
