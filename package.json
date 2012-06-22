@@ -30,8 +30,6 @@
 		"node": ">=0.4.0"
 	},
 	"dependencies": {
-		"coffee-script": "1.3.x",
-		"express": "2.5.x",
 		"docpad": "6.0.x",
 		"docpad-plugin-cleanurls": "2.0.x",
 		"docpad-plugin-coffee": "2.0.x",
