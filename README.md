@@ -9,13 +9,13 @@ Bare essentials for building a modern website with best practices
 1. Clone the project and run the server
 
 	``` bash
-	git clone git://github.com/bevry/website.docpad.git
-	cd website.docpad
+	git clone git://github.com/docpad/html5-boilerplate.docpad.git
+	cd html5-boilerplate.docpad
 	npm install
-	coffee server.coffee
+	docpad run
 	```
 
-1. [Open http://localhost:10113/](http://localhost:10113/)
+1. [Open http://localhost:9778/](http://localhost:9778/)
 
 1. Start hacking away by modifying the `src` directory
 
