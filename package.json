@@ -30,15 +30,15 @@
 		"node": ">=0.4.0"
 	},
 	"dependencies": {
-		"docpad": "6.1.x",
-		"docpad-plugin-cleanurls": "2.1.x",
-		"docpad-plugin-coffee": "2.0.x",
-		"docpad-plugin-eco": "2.0.x",
-		"docpad-plugin-less": "2.0.x",
-		"docpad-plugin-markdown": "2.0.x",
-		"docpad-plugin-partials": "2.1.x",
-		"docpad-plugin-stylus": "2.0.x",
-		"docpad-plugin-text": "2.1.x"
+		"docpad": "6.x",
+		"docpad-plugin-cleanurls": "2.x",
+		"docpad-plugin-coffee": "2.x",
+		"docpad-plugin-eco": "2.x",
+		"docpad-plugin-less": "2.x",
+		"docpad-plugin-markdown": "2.x",
+		"docpad-plugin-partials": "2.x",
+		"docpad-plugin-stylus": "2.x",
+		"docpad-plugin-text": "2.x"
 	},
 	"main": "./server.js"
 }
