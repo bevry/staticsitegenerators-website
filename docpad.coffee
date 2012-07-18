@@ -88,18 +88,5 @@ docpadConfig = {
 					next()
 }
 
-
-# Production Environment Settings
-if process.env.PORT?
-	# Do not check for newer docpad versions
-	docpadConfig.checkVersion = false
-
-	# Run the DocPad server on the production port
-	docpadConfig.port = process.env.PORT
-
-	# Set a maximum cache age of one day
-	docpadConfig. maxAge = 86400000  # one day
-
-
 # Export our DocPad Configuration
 module.exports = docpadConfig

@@ -1,1 +1,1 @@
-web: node server.js
+web: node_modules/docpad/bin/docpad-server
