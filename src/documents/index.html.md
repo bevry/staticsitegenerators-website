@@ -7,5 +7,5 @@ title: 'What now?'
 
 - [DocPad Wiki](https://github.com/bevry/docpad/wiki)
 - [Getting Started Guide](https://github.com/bevry/docpad/wiki/Getting-Started)
-- [Begginer Guide](https://github.com/bevry/docpad/wiki/Beginner-Guide)
+- [Beginner Guide](https://github.com/bevry/docpad/wiki/Beginner-Guide)
 - [IRC Chat Room](irc://irc.freenode.net/docpad)
