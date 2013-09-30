@@ -1,6 +1,5 @@
 ---
 layout: 'default'
-title: 'Listing'
 ---
 
 <table class="ui table segment">
