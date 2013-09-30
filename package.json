@@ -1,17 +1,9 @@
 {
-  "name": "html5-boilerplate.docpad",
+  "name": "staticsitegenerators",
   "version": "0.1.0",
   "private": true,
-  "description": "HTML5 Boilerplate skeleton for DocPad. Bare essentials for building a modern website with best practices.",
-  "homepage": "https://github.com/docpad/html5-boilerplate.docpad",
-  "keywords": [
-    "docpad-skeleton",
-    "docpad",
-    "website",
-    "skeleton",
-    "html5 boilerplate",
-    "h5bp"
-  ],
+  "description": "The ultimate crowd-sourced listing of Static Site Generators",
+  "homepage": "https://github.com/bevry/staticsitegenerators",
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
@@ -20,11 +12,11 @@
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
   "bugs": {
-    "url": "https://github.com/docpad/html5-boilerplate.docpad/issues"
+    "url": "https://github.com/bevry/staticsitegenerators/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/docpad/html5-boilerplate.docpad.git"
+    "url": "http://github.com/bevry/staticsitegenerators.git"
   },
   "engines": {
     "node": "0.10",
