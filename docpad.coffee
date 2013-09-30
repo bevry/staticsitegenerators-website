@@ -23,7 +23,7 @@ docpadConfig = {
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
 				'www.staticsitegenerators.net',
-				#'staticsitegenerators.herokuapp.com'
+				'staticsitegenerators.herokuapp.com'
 				'bevry.github.io'
 			]
 
