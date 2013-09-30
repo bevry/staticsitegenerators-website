@@ -3,6 +3,12 @@
 docpadConfig = {
 
 	# =================================
+	# DocPad Properties
+
+	rengerateEvery: 1000*60*60  # hour
+
+
+	# =================================
 	# Template Data
 	# These are variables that will be accessible via our templates
 	# To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
@@ -12,40 +18,47 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://website.com"
+			url: "http://staticsitegenerators.net"
 
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
-				'www.website.com',
-				'website.herokuapp.com'
+				'www.staticsitegenerators.net',
+				'staticsitegenerators.herokuapp.com'
+				'bevry.github.io'
 			]
 
 			# The default title of our website
-			title: "Your Website"
+			title: "Static Site Generators"
 
 			# The website description (for SEO)
 			description: """
-				When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+				The ultimate crowd-sourced listing of Static Site Generators
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+				static site generator, static site, static, site, web site, web app, app, application, web application, seo, search engine optimisation, fast, flat file, cms, content management system, nosql, node.js, ruby, javascript, python
 				"""
 
 			# The website's styles
 			styles: [
 				'/vendor/normalize.css'
-				'/vendor/h5bp.css'
+				'/vendor/semanticui/css/semantic.min.css'
 				'/styles/style.css'
 			]
 
 			# The website's scripts
 			scripts: [
-				'/vendor/log.js'
-				'/vendor/modernizr.js'
+				'/vendor/semanticui/javascript/semantic.min.js'
 				'/scripts/script.js'
 			]
+
+			services:
+				facebookLikeButton:
+					applicationId: '266367676718271'
+				githubStarButton: 'bevry/staticsitegenerators'
+
+				googleAnalytics: 'UA-35505181-5'
 
 
 		# -----------------------------
@@ -72,6 +85,20 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
+
+	# =================================
+	# DocPad Plugins
+
+	plugins:
+		downloader:
+			downloads: [
+				{
+					name: 'SSG Listing'
+					url: 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml'
+					path: 'src/documents/list.json.yaml'
+					refresh: true
+				}
+			]
 
 	# =================================
 	# DocPad Events

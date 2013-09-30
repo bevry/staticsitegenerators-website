@@ -1,0 +1,40 @@
+---
+layout: 'default'
+title: 'Listing'
+---
+
+<table class="ui table segment">
+	<thead>
+		<tr><th>Name</th>
+		<th>Source</th>
+		<th>Website</th>
+	</tr></thead>
+	<tbody>
+		<% for entry in JSON.parse(@getFileAtPath('list.json').get('contentRendered') or '{}'): %>
+		<tr>
+			<td><%= entry.name %></td>
+			<td>
+				<% if entry.github: %>
+					<a href="https://github.com/<%=entry.github%>" title="Visit <%= entry.name %>&rsquo;s GitHub repository">
+						<%= entry.github %>
+					</a>
+				<% end %>
+			</td>
+			<td>
+				<% if entry.website: %>
+					<a href="<%=entry.website%>" title="Visit <%= entry.name %>&rsquo;s website">
+						<%= entry.website.replace(/^.+\/\/(www\.)?|\/+$/g, '') %>
+					</a>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+	<tfoot>
+		<tr>
+			<th colspan="3">
+				<a href="https://github.com/jaspervdj/static-site-generator-comparison/edit/master/list.yaml" title="Update this static site generator listing" class="ui blue labeled icon button"><i class="list icon"></i> Update Listing</a>
+				<a href="https://github.com/bevry/staticsitegenerators" title="Update this website&rsquo;s content" class="ui blue labeled icon button"><i class="column layout icon"></i> Update Website</a>
+			</th>
+	</tr></tfoot>
+</table>

@@ -1,0 +1,277 @@
+- name: 'Ace'
+  github: 'botanicus/ace'
+
+- name: 'acrylamid'
+  github: 'posativ/acrylamid'
+
+- name: 'awestruct'
+  website: 'http://awestruct.org/'
+  github: 'awestruct/awestruct'
+
+- name: 'bazinga'
+  github: 'ap0calypse/bazinga'
+
+- name: 'Blacksmith'
+  github: 'flatiron/blacksmith'
+
+- name: 'Blatter'
+  website: 'http://bitbucket.org/jek/blatter'
+
+- name: 'Blogofile'
+  website: 'http://www.blogofile.com/'
+  github: 'EnigmaCurry/blogofile'
+
+- name: 'Bonsai'
+  website: 'http://tinytree.info/'
+  github: 'benschwarz/bonsai'
+
+- name: 'Cactus'
+  github: 'koenbok/Cactus'
+
+- name: 'Chisel'
+  github: 'dz/chisel'
+
+- name: 'coleslaw'
+  website: 'http://www.cliki.net/coleslaw'
+  github: 'redline6561/coleslaw'
+
+- name: 'Composer'
+  github: 'shazow/composer'
+
+- name: 'cyrax'
+  website: 'http://pypi.python.org/pypi/cyrax'
+  github: 'piranha/cyrax'
+
+- name: 'Deplot'
+  github: 'cdn64/deplot'
+
+- name: 'DocPad'
+  github: 'bevry/docpad'
+
+- name: 'Fairytale'
+  github: '46Bit/fairytale'
+
+- name: 'Floyd'
+  github: 'nikcub/floyd'
+
+- name: 'FMPP'
+  website: 'http://fmpp.sourceforge.net/'
+
+- name: 'Frank'
+  github: 'blahed/frank'
+
+- name: 'fugitive'
+  website: 'https://gitorious.org/fugitive'
+
+- name: 'gostatic'
+  github: 'piranha/gostatic'
+
+- name: 'Graze'
+  github: 'mikoskinen/graze'
+
+- name: 'Growl'
+  github: 'xfire/growl'
+
+- name: 'Hakyll'
+  website: 'http://jaspervdj.be/hakyll/'
+  github: 'jaspervdj/hakyll'
+
+- name: 'Hammer'
+  website: 'http://hammerformac.com/'
+  # This one is closed-source?
+
+- name: 'Hastie'
+  github: 'mkaz/hastie'
+
+- name: 'Hexo'
+  website: 'http://zespia.tw/hexo/'
+  github: 'tommy351/hexo'
+
+- name: 'Hobix'
+  github: 'hobix/hobix'
+
+- name: 'Hyde'
+  github: 'lakshmivyas/hyde'
+
+- name: 'Jekyll'
+  github: 'mojombo/jekyll'
+
+- name: 'jinjet'
+  github: 'jokull/jinjet'
+
+- name: 'jkl'
+  github: 'drone/jkl'
+
+- name: 'Kerouac'
+  github: 'jaredhanson/kerouac'
+
+- name: 'Korma'
+  github: 'sandal/korma'
+
+- name: 'Lanyon'
+  website: 'http://lanyon.readthedocs.org/'
+
+- name: 'Letterpress'
+  github: 'an0/Letterpress'
+
+- name: 'Machined'
+  github: 'petebrowne/machined'
+
+- name: 'Magneto'
+  github: 'donmelton/magneto'
+
+- name: 'Markbox'
+  github: 'myfreeweb/markbox'
+
+- name: 'Markdoc'
+  website: 'http://markdoc.org/'
+  github: 'zacharyvoase/markdoc'
+
+- name: 'Middleman'
+  github: 'middleman/middleman'
+
+- name: 'mynt'
+  website: 'http://mynt.mirroredwhite.com/'
+  github: 'Anomareh/mynt'
+
+- name: 'nanoc'
+  website: 'http://nanoc.stoneship.org/'
+  github: 'nanoc/nanoc'
+
+- name: 'Nikola'
+  website: 'http://nikola.ralsina.com.ar/'
+  github: 'getnikola/nikola'
+
+- name: 'Pagegen'
+  website: 'http://pagegen.phnd.net/'
+
+- name: 'Pelican'
+  github: 'ametaireau/pelican'
+
+- name: 'Petrify'
+  github: 'caolan/petrify'
+
+- name: 'Phrozn'
+  website: 'http://phrozn.info'
+  github: 'farazdagi/phrozn'
+
+- name: 'PieCrust'
+  website: 'http://bolt80.com/piecrust/'
+  github: 'ludovicchabant/piecrust'
+
+- name: 'Pilcrow'
+  website: 'http://inky.github.com/pilcrow/'
+  github: 'inky/pilcrow'
+
+- name: 'Pith'
+  github: 'mdub/pith'
+
+- name: 'poole'
+  website: 'https://bitbucket.org/obensonne/poole'
+
+- name: 'Punch'
+  github: 'laktek/punch'
+
+- name: 'Pyll'
+  github: 'arthurk/pyll'
+
+- name: 'Quill'
+  website: 'https://npmjs.org/package/quill'
+  github: 'theycallmeswift/quill'
+
+- name: 'RakeWeb'
+  website: 'http://rubyforge.org/projects/rakeweb/'
+
+- name: 'Rassmalog'
+  website: 'http://rassmalog.rubyforge.org/'
+
+- name: 'Rizzo'
+  github: 'fifthposition/rizzo'
+
+- name: 'Rog'
+  website: 'http://rog.rubyforge.org/'
+
+- name: 'romulus'
+  github: 'felixge/node-romulus'
+
+- name: 'Rote'
+  website: 'http://rote.rubyforge.org/'
+
+- name: 'RubyFrontier'
+  website: 'http://www.apeth.com/RubyFrontierDocs/default.html'
+  github: 'mattneub/RubyFrontier'
+
+- name: 'Ruhoh'
+  language: 'language-agnostic'
+  website: 'http://ruhoh.com/'
+  github: 'ruhoh/ruhoh.rb'
+
+- name: 'Sculpin'
+  website: 'http://sculpin.io/'
+  github: 'sculpin/sculpin'
+
+- name: 'Second Crack'
+  website: 'http://www.marco.org/secondcrack'
+  github: 'marcoarment/secondcrack'
+
+- name: 'Socrates'
+  website: 'http://honza.ca/socrates/'
+  github: 'honza/socrates'
+
+- name: 'Speechhub'
+  github: 'alvesjnr/speechhub'
+
+- name: 'Stasis'
+  website: 'http://stasis.me/'
+  github: 'winton/stasis'
+
+- name: 'staticjinja'
+  github: 'Ceasar/staticjinja'
+
+- name: 'StaticMatic'
+  website: 'http://rubyforge.org/projects/staticmatic/'
+
+- name: 'StaticMatic2'
+  github: 'mindeavor/staticmatic2'
+
+- name: 'StaticWeb'
+  website: 'http://staticweb.rubyforge.org/'
+
+- name: 'Tahchee'
+  github: 'sebastien/tahchee'
+
+- name: 'Ultra simple Site Maker'
+  website: 'http://www.loup-vaillant.fr/projects/ussm/'
+
+- name: 'Webby'
+  website: 'http://webby.rubyforge.org/'
+  github: 'TwP/webby'
+  # The github repo says "NO LONGER UNDER DEVELOPMENT"
+
+- name: 'webgen'
+  website: 'http://webgen.rubyforge.org/'
+
+- name: 'Website Meta Language'
+  language: 'C and Perl'
+  website: 'http://www.thewml.org/'
+
+- name: 'Wintersmith'
+  website: 'http://jnordberg.github.com/wintersmith/'
+  github: 'jnordberg/wintersmith'
+
+- name: 'wok'
+  github: 'mythmon/wok'
+
+- name: 'yassg'
+  website: 'https://npmjs.org/package/yassg'
+  github: 'sma/yassg'
+
+- name: 'yst'
+  github: 'jgm/yst'
+
+- name: 'Yurt CMS'
+  website: 'http://yurtcms.roberthahn.ca/'
+
+- name: 'ZenWeb'
+  website: 'http://www.zenspider.com/ZSS/Products/ZenWeb/'
+  github: 'seattlerb/zenweb'
