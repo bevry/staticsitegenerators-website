@@ -46,6 +46,7 @@
   github: 'cdn64/deplot'
 
 - name: 'DocPad'
+  website: 'http://docpad.org'
   github: 'bevry/docpad'
 
 - name: 'Fairytale'
@@ -104,6 +105,10 @@
 
 - name: 'Kerouac'
   github: 'jaredhanson/kerouac'
+
+- name: 'Kirby'
+  website: 'http://getkirby.com/'
+  github: 'bastianallgeier/kirbycms'
 
 - name: 'Korma'
   github: 'sandal/korma'
@@ -224,6 +229,9 @@
 - name: 'Stasis'
   website: 'http://stasis.me/'
   github: 'winton/stasis'
+
+- name: 'Statamic'
+  website: 'http://www.statamic.com/'
 
 - name: 'staticjinja'
   github: 'Ceasar/staticjinja'
