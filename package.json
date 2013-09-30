@@ -36,8 +36,7 @@
     "docpad-plugin-stylus": "~2.4.0",
     "docpad-plugin-downloader": "~2.1.2",
     "docpad-plugin-yamljs": "~2.0.0",
-    "docpad-plugin-services": "~2.4.2",
-    "docpad-plugin-ghpages": "~2.4.0"
+    "docpad-plugin-services": "~2.4.2"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "~2.5.3"
