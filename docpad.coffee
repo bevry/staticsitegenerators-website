@@ -1,3 +1,6 @@
+# Prepare
+projects = {}
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
@@ -85,20 +88,8 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
-
-	# =================================
-	# DocPad Plugins
-
-	plugins:
-		downloader:
-			downloads: [
-				{
-					name: 'SSG Listing'
-					url: 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml'
-					path: 'src/documents/list.json.yaml'
-					refresh: true
-				}
-			]
+		# Get Projects
+		getProjects: -> projects
 
 	# =================================
 	# DocPad Events
@@ -106,6 +97,35 @@ docpadConfig = {
 	# Here we can define handlers for events that DocPad fires
 	# You can find a full listing of events on the DocPad Wiki
 	events:
+
+		# Generate Before
+		generateBefore: (opts, next) ->
+			return next()  unless opts.reset is true
+			docpad = @docpad
+			docpad.log 'info', 'Fetching the latest static site generators'
+			require('feedr').create(log: docpad.log).readFeed 'http://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
+				return next(err)  if err
+
+				repoFullNames = []
+				for entry in data
+					repoFullNames.push(entry.github)  if entry.github
+					key = (entry.github or entry.website).toLowerCase()
+					projects[key] = entry
+
+				docpad.log 'info', "Fetching the information for #{repoFullNames.length} github static site generators"
+
+				require('getrepos').create(log: docpad.log).fetchRepos repoFullNames, (err,repos) ->
+					return next(err)  if err
+
+					for repo in repos
+						key = repo.full_name.toLowerCase()
+						if projects[key]
+							projects[key].githubData = repo
+						else
+							console.log repo.full_name, 'is missing'
+
+					docpad.log 'info', 'Fetched the latest static site generators'
+					return next()
 
 		# Server Extend
 		# Used to add our own custom routes to the server before the docpad routes are added
