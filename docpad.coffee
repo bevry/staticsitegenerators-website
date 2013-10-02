@@ -1,5 +1,6 @@
 # Prepare
 projects = {}
+websiteVersion = require('./package.json').version
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
@@ -48,13 +49,13 @@ docpadConfig = {
 				'/vendor/normalize.css'
 				'/vendor/semanticui/css/semantic.min.css'
 				'/styles/style.css'
-			]
+			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
 			# The website's scripts
 			scripts: [
 				'/vendor/semanticui/javascript/semantic.min.js'
 				'/scripts/script.js'
-			]
+			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
 			services:
 				facebookLikeButton:

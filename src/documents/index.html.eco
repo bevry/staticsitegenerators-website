@@ -11,9 +11,14 @@ layout: 'default'
 	</tr></thead>
 	<tbody>
 		<% for own key,project of @getProjects(): %>
-		<tr>
+		<tr class="project-header">
 			<td><%= project.name %></td>
-			<td><%= project.githubData?.watchers %></td>
+			<td>
+				<% if project.githubData?.watchers: %>
+					<%= project.githubData?.watchers %>
+					<i class="icon star"></i>
+				<% end %>
+			</td>
 			<td>
 				<% if project.github: %>
 					<a href="https://github.com/<%=project.github%>" title="Visit <%= project.name %>&rsquo;s GitHub repository">
@@ -27,6 +32,11 @@ layout: 'default'
 						<%= project.website.replace(/^.+\/\/(www\.)?|\/+$/g, '') %>
 					</a>
 				<% end %>
+			</td>
+		</tr>
+		<tr class="project-body">
+			<td colspan="4">
+				<%= project.githubData?.description or 'No description' %>
 			</td>
 		</tr>
 		<% end %>
