@@ -39,7 +39,7 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				The ultimate crowd-sourced listing of Static Site Generators
+				The definitive listing of Static Site Generators
 				"""
 
 			# The website keywords (for SEO) separated by commas
