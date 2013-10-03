@@ -29,7 +29,8 @@
     "docpad-plugin-services": "~2.4.2",
     "getrepos": "~1.0.2",
     "feedr": "~2.7.0",
-    "moment": "~2.2.1"
+    "moment": "~2.2.1",
+    "docpad-plugin-coffeescript": "~2.2.2"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "~2.5.3"

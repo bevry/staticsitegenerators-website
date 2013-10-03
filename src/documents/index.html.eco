@@ -2,7 +2,7 @@
 layout: 'default'
 ---
 
-<table class="projects ui table segment">
+<table class="projects ui table segment sortable">
 	<thead>
 		<tr>
 			<th>Name</th>
@@ -17,8 +17,8 @@ layout: 'default'
 	</thead>
 	<tbody>
 		<% for own key,project of @getProjects(): %>
-		<tr class="project-header">
-			<td><!-- Name -->
+		<tr>
+			<td class="project title" data-title="<%= project.name %>" data-content="<%= project.githubData?.description or 'No description' %>"><!-- Name -->
 				<%= project.name %>
 			</td>
 			<td><!-- Stars -->
@@ -60,11 +60,6 @@ layout: 'default'
 						<%= project.website.replace(/^.+\/\/(www\.)?|\/+$/g, '') %>
 					</a>
 				<% end %>
-			</td>
-		</tr>
-		<tr class="project-body">
-			<td colspan="8">
-				<%= project.githubData?.description or 'No description' %>
 			</td>
 		</tr>
 		<% end %>
