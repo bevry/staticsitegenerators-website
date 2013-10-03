@@ -17,8 +17,8 @@ layout: 'default'
 	</thead>
 	<tbody>
 		<% for own key,project of @getProjects(): %>
-		<tr>
-			<td class="project title" data-title="<%= project.name %>" data-content="<%= project.githubData?.description or 'No description' %>"><!-- Name -->
+		<tr class="project title" data-title="<%= project.name %>" data-content="<%= project.githubData?.description or 'No description' %>">
+			<td><!-- Name -->
 				<%= project.name %>
 			</td>
 			<td><!-- Stars -->
