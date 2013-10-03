@@ -19,6 +19,9 @@ docpadConfig = {
 
 	templateData:
 
+		# Moment
+		moment: require('moment')
+
 		# Specify some site properties
 		site:
 			# The production url of our website
@@ -103,28 +106,42 @@ docpadConfig = {
 		generateBefore: (opts, next) ->
 			return next()  unless opts.reset is true
 			docpad = @docpad
+
+			# Fetch the latest projects
 			docpad.log 'info', 'Fetching the latest static site generators'
 			require('feedr').create(log: docpad.log).readFeed 'http://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
 				return next(err)  if err
 
+				# Prepare the entries for the projects
+				# and extract the repo names
 				repoFullNames = []
 				for entry in data
 					repoFullNames.push(entry.github)  if entry.github
 					key = (entry.github or entry.website).toLowerCase()
 					projects[key] = entry
 
+				# Fetch the github data for the repos
 				docpad.log 'info', "Fetching the information for #{repoFullNames.length} github static site generators"
-
 				require('getrepos').create(log: docpad.log).fetchRepos repoFullNames, (err,repos) ->
 					return next(err)  if err
 
-					for repo in repos
-						key = repo.full_name.toLowerCase()
-						if projects[key]
-							projects[key].githubData = repo
-						else
-							console.log repo.full_name, 'is missing'
+					# Prepare the proejcts with the github data
+					for githubData in repos
+						key = githubData.full_name.toLowerCase()
 
+						# Confirm existance as name may have changed from the listing
+						unless projects[key]?
+							console.log githubData.full_name, 'is missing'
+							continue
+
+						# Apply github data
+						projects[key].githubData = githubData
+
+						# Ensure website
+						if !projects[key].website and githubData.homepage and githubData.homepage.toLowerCase().indexOf('github.com/'+key) is -1
+							projects[key].website = githubData.homepage
+
+					# Complete
 					docpad.log 'info', 'Fetched the latest static site generators'
 					return next()
 

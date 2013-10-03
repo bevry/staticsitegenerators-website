@@ -4,11 +4,15 @@ layout: 'default'
 
 <table class="projects ui table segment">
 	<thead>
-		<tr><th>Name</th>
-		<th>Stars</th>
-		<th>Source</th>
-		<th>Website</th>
-	</tr></thead>
+		<tr>
+			<th>Name</th>
+			<th>Stars</th>
+			<th>Source</th>
+			<th>Website</th>
+			<th>Created</th>
+			<th>Updated</th>
+		</tr>
+	</thead>
 	<tbody>
 		<% for own key,project of @getProjects(): %>
 		<tr class="project-header">
@@ -33,9 +37,19 @@ layout: 'default'
 					</a>
 				<% end %>
 			</td>
+			<td>
+				<% if project.githubData?.created_at: %>
+					<%= @moment(project.githubData.created_at).fromNow() %>
+				<% end %>
+			</td>
+			<td>
+				<% if project.githubData?.pushed_at: %>
+					<%= @moment(project.githubData.pushed_at).fromNow() %>
+				<% end %>
+			</td>
 		</tr>
 		<tr class="project-body">
-			<td colspan="4">
+			<td colspan="6">
 				<%= project.githubData?.description or 'No description' %>
 			</td>
 		</tr>
@@ -43,7 +57,7 @@ layout: 'default'
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="4">
+			<th colspan="6">
 				<a href="https://github.com/jaspervdj/static-site-generator-comparison/edit/master/list.yaml" title="Update this static site generator listing" class="ui blue labeled icon button"><i class="list icon"></i> Update Listing</a>
 				<a href="https://github.com/bevry/staticsitegenerators" title="Update this website&rsquo;s content" class="ui blue labeled icon button"><i class="column layout icon"></i> Update Website</a>
 			</th>
