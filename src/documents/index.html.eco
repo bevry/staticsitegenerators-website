@@ -9,6 +9,7 @@ layout: 'default'
 			<th>Stars</th>
 			<th>Source</th>
 			<th>Website</th>
+			<th>Language</th>
 			<th>Created</th>
 			<th>Updated</th>
 		</tr>
@@ -38,6 +39,11 @@ layout: 'default'
 				<% end %>
 			</td>
 			<td>
+				<% if project.githubData?.language: %>
+					<%= project.githubData?.language %>
+				<% end %>
+			</td>
+			<td>
 				<% if project.githubData?.created_at: %>
 					<%= @moment(project.githubData.created_at).fromNow() %>
 				<% end %>
@@ -49,7 +55,7 @@ layout: 'default'
 			</td>
 		</tr>
 		<tr class="project-body">
-			<td colspan="6">
+			<td colspan="7">
 				<%= project.githubData?.description or 'No description' %>
 			</td>
 		</tr>
@@ -57,7 +63,7 @@ layout: 'default'
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="6">
+			<th colspan="7">
 				<a href="https://github.com/jaspervdj/static-site-generator-comparison/edit/master/list.yaml" title="Update this static site generator listing" class="ui blue labeled icon button"><i class="list icon"></i> Update Listing</a>
 				<a href="https://github.com/bevry/staticsitegenerators" title="Update this website&rsquo;s content" class="ui blue labeled icon button"><i class="column layout icon"></i> Update Website</a>
 			</th>
