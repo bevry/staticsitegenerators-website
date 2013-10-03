@@ -9,8 +9,8 @@ layout: 'default'
 			<th>Stars</th>
 			<th>License</th>
 			<th>Language</th>
-			<th>Created</th>
-			<th>Updated</th>
+			<th class="date">Created</th>
+			<th class="date">Updated</th>
 			<th>Source</th>
 			<th>Website</th>
 		</tr>
@@ -37,12 +37,12 @@ layout: 'default'
 					<%= project.githubData?.language %>
 				<% end %>
 			</td>
-			<td data-sort-value="<%= @moment(project.githubData?.created_at).unix() %>"><!-- Created -->
+			<td class="date" data-sort-value="<%= @moment(project.githubData?.created_at or 0).unix() %>"><!-- Created -->
 				<% if project.githubData?.created_at: %>
 					<%= @moment(project.githubData.created_at).fromNow() %>
 				<% end %>
 			</td>
-			<td data-sort-value="<%= @moment(project.githubData?.pushed_at).unix() %>"><!-- Updated -->
+			<td class="date" data-sort-value="<%= @moment(project.githubData?.pushed_at or 0).unix() %>"><!-- Updated -->
 				<% if project.githubData?.pushed_at: %>
 					<%= @moment(project.githubData.pushed_at).fromNow() %>
 				<% end %>
