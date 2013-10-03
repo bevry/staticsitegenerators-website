@@ -7,55 +7,63 @@ layout: 'default'
 		<tr>
 			<th>Name</th>
 			<th>Stars</th>
-			<th>Source</th>
-			<th>Website</th>
+			<th>License</th>
 			<th>Language</th>
 			<th>Created</th>
 			<th>Updated</th>
+			<th>Source</th>
+			<th>Website</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% for own key,project of @getProjects(): %>
 		<tr class="project-header">
-			<td><%= project.name %></td>
-			<td>
+			<td><!-- Name -->
+				<%= project.name %>
+			</td>
+			<td><!-- Stars -->
 				<% if project.githubData?.watchers: %>
 					<%= project.githubData?.watchers %>
 					<i class="icon star"></i>
 				<% end %>
 			</td>
-			<td>
+			<td><!-- License -->
+				<% if project.license: %>
+					<%= project.license %>
+				<% end %>
+			</td>
+			<td><!-- Language -->
+				<% if project.githubData?.language: %>
+					<%= project.githubData?.language %>
+				<% end %>
+			</td>
+			<td><!-- Created -->
+				<% if project.githubData?.created_at: %>
+					<%= @moment(project.githubData.created_at).fromNow() %>
+				<% end %>
+			</td>
+			<td><!-- Updated -->
+				<% if project.githubData?.pushed_at: %>
+					<%= @moment(project.githubData.pushed_at).fromNow() %>
+				<% end %>
+			</td>
+			<td><!-- Source -->
 				<% if project.github: %>
 					<a href="https://github.com/<%=project.github%>" title="Visit <%= project.name %>&rsquo;s GitHub repository">
 						<%= project.github %>
 					</a>
 				<% end %>
 			</td>
-			<td>
+			<td><!-- Website -->
 				<% if project.website: %>
 					<a href="<%=project.website%>" title="Visit <%= project.name %>&rsquo;s website">
 						<%= project.website.replace(/^.+\/\/(www\.)?|\/+$/g, '') %>
 					</a>
 				<% end %>
 			</td>
-			<td>
-				<% if project.githubData?.language: %>
-					<%= project.githubData?.language %>
-				<% end %>
-			</td>
-			<td>
-				<% if project.githubData?.created_at: %>
-					<%= @moment(project.githubData.created_at).fromNow() %>
-				<% end %>
-			</td>
-			<td>
-				<% if project.githubData?.pushed_at: %>
-					<%= @moment(project.githubData.pushed_at).fromNow() %>
-				<% end %>
-			</td>
 		</tr>
 		<tr class="project-body">
-			<td colspan="7">
+			<td colspan="8">
 				<%= project.githubData?.description or 'No description' %>
 			</td>
 		</tr>
@@ -63,7 +71,7 @@ layout: 'default'
 	</tbody>
 	<tfoot>
 		<tr>
-			<th colspan="7">
+			<th colspan="8">
 				<a href="https://github.com/jaspervdj/static-site-generator-comparison/edit/master/list.yaml" title="Update this static site generator listing" class="ui blue labeled icon button"><i class="list icon"></i> Update Listing</a>
 				<a href="https://github.com/bevry/staticsitegenerators" title="Update this website&rsquo;s content" class="ui blue labeled icon button"><i class="column layout icon"></i> Update Website</a>
 			</th>
