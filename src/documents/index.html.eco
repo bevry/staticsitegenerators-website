@@ -37,12 +37,12 @@ layout: 'default'
 					<%= project.githubData?.language %>
 				<% end %>
 			</td>
-			<td><!-- Created -->
+			<td data-sort-value="<%= @moment(project.githubData?.created_at).unix() %>"><!-- Created -->
 				<% if project.githubData?.created_at: %>
 					<%= @moment(project.githubData.created_at).fromNow() %>
 				<% end %>
 			</td>
-			<td><!-- Updated -->
+			<td data-sort-value="<%= @moment(project.githubData?.pushed_at).unix() %>"><!-- Updated -->
 				<% if project.githubData?.pushed_at: %>
 					<%= @moment(project.githubData.pushed_at).fromNow() %>
 				<% end %>
