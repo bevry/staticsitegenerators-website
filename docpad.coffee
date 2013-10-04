@@ -179,8 +179,11 @@ docpadConfig = {
 			server.all '/regenerate', (req,res) ->
 				if req.query?.key is process.env.WEBHOOK_KEY
 					docpad.log('info', 'Regenerating started from webhook')
-					docpad.action('generate')
-					res.send(200, 'regenerated')
+					docpad.action 'generate', (err) ->
+						if err
+							res.send(500, err?.message or err)
+						else
+							res.send(200, 'regenerated')
 				else
 					res.send(400, 'key is incorrect')
 
