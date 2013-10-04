@@ -125,7 +125,7 @@ docpadConfig = {
 					projects[key] = entry
 
 				# Fetch the github data for the repos
-				docpad.log 'info', "Fetching the information for #{repoFullNames.length} github static site generators"
+				docpad.log 'info', "Fetching the github information for the static site generators, all #{repoFullNames.length} of them"
 				require('getrepos').create(log: docpad.log).fetchRepos repoFullNames, (err,repos) ->
 					return next(err)  if err
 
@@ -146,7 +146,7 @@ docpadConfig = {
 							projects[key].website = githubData.homepage
 
 					# Complete
-					docpad.log 'info', 'Fetched the latest static site generators'
+					docpad.log 'info', "Fetched the github information for the static site generators, all #{repos.length} of them"
 					return next()
 
 		# Server Extend

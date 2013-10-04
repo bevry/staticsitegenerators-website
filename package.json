@@ -27,8 +27,8 @@
     "docpad-plugin-eco": "~2.0.2",
     "docpad-plugin-stylus": "~2.4.0",
     "docpad-plugin-services": "~2.4.2",
-    "getrepos": "~1.0.2",
-    "feedr": "~2.7.0",
+    "getrepos": "~1.0.4",
+    "feedr": "~2.7.2",
     "moment": "~2.2.1",
     "docpad-plugin-coffeescript": "~2.2.2"
   },

@@ -27,9 +27,9 @@
 <body>
 	<header>
 		<h1 class="ui block header">
-			Static Site Generators
+			<%= @site.title %>
 			<div class="sub header">
-				The ultimate crowd-sourced listing
+				<%= @site.description %>
 				<br/>
 				<%- @getServiceButtons() %>
 			</div>
