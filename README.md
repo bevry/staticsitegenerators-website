@@ -11,7 +11,6 @@ In the future we'd like to add the following to the listing:
 - Project Maturity
 	- Contributors
 	- Commits
-- [License](https://github.com/jaspervdj/static-site-generator-comparison/issues/11)
 
 As well as add a link to the [Go Open Campaign](https://github.com/bevry/goopen) to help educate people about the benefits of Static Site Generators.
 
