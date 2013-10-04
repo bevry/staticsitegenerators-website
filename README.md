@@ -1,5 +1,5 @@
 # Static Site Generators
-The ultimate crowd-sourced listing
+The definitive listing of Static Site Generators
 
 
 ## How it works
