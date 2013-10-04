@@ -110,7 +110,10 @@ docpadConfig = {
 				repoFullNames = []
 				for entry in data
 					repoFullNames.push(entry.github)  if entry.github
-					key = (entry.github or entry.website).toLowerCase()
+					key = (entry.github or entry.website or '').toLowerCase()
+					unless key
+						console.log 'missing details for:', entry
+						continue
 					projects[key] = entry
 
 				docpad.log 'info', "Fetching the information for #{repoFullNames.length} github static site generators"
