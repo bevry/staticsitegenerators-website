@@ -12,7 +12,7 @@ In the future we'd like to add the following to the listing:
 	- Contributors
 	- Commits
 
-As well as add a link to the [Go Open Campaign](https://github.com/bevry/goopen) to help educate people about the benefits of Static Site Generators.
+As well as add a link to the [Go Static Campaign](https://github.com/bevry/gostatic) to help educate people about the benefits of Static Site Generators.
 
 
 ## Getting Started
