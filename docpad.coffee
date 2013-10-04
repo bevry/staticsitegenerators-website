@@ -9,7 +9,7 @@ docpadConfig = {
 	# =================================
 	# DocPad Properties
 
-	rengerateEvery: 1000*60*60  # hour
+	rengerateEvery: 1000*60*60*24  # day
 
 
 	# =================================
@@ -149,6 +149,9 @@ docpadConfig = {
 					docpad.log 'info', "Fetched the github information for the static site generators, all #{repos.length} of them"
 					return next()
 
+			# Return
+			return true
+
 		# Server Extend
 		# Used to add our own custom routes to the server before the docpad routes are added
 		serverExtend: (opts) ->
@@ -163,12 +166,26 @@ docpadConfig = {
 			oldUrls = latestConfig.templateData.site.oldUrls or []
 			newUrl = latestConfig.templateData.site.url
 
+			# Redirect Hook
 			# Redirect any requests accessing one of our sites oldUrls to the new site url
 			server.use (req,res,next) ->
 				if req.headers.host in oldUrls
 					res.redirect(newUrl+req.url, 301)
 				else
 					next()
+
+			# DocPad Regenerate Hook
+			# Automatically regenerate when new changes are pushed to our documentation
+			server.all '/regenerate', (req,res) ->
+				if req.query?.key is process.env.WEBHOOK_KEY
+					docpad.log('info', 'Regenerating started from webhook')
+					docpad.action('generate')
+					res.send(200, 'regenerated')
+				else
+					res.send(400, 'key is incorrect')
+
+			# Return
+			return true
 }
 
 # Export our DocPad Configuration
