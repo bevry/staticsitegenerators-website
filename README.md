@@ -33,6 +33,9 @@ As well as add a link to the [Go Open Campaign](https://github.com/bevry/goopen)
 1. Start hacking away by modifying the `src` directory
 
 
+[Our Coding Standards / Style Guide](https://github.com/bevry/community/wiki/Coding-Standards)
+
+
 ## FAQ
 
 ### My favourite SSG is not listed!
