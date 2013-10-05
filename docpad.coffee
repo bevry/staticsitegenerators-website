@@ -150,7 +150,7 @@ docpadConfig = {
 					for own key,project of projectsMap
 						projects.push
 							name: project.name
-							website: project.website?.replace(/^.+\/\/(www\.)?|\/+$/g, '') or null
+							website: project.website or null
 							github: project.github or null
 							license: project.license or null
 							description: project.githubData?.description or null
