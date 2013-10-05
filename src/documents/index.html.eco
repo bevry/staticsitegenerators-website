@@ -16,14 +16,14 @@ layout: 'default'
 		</tr>
 	</thead>
 	<tbody>
-		<% for own key,project of @getProjects(): %>
-		<tr class="project title" data-title="<%= project.name %>" data-content="<%= project.githubData?.description or 'No description' %>">
+		<% for project in @getProjects(): %>
+		<tr class="project title" data-title="<%= project.name %>" data-content="<%= project.description or 'No description' %>">
 			<td><!-- Name -->
 				<%= project.name %>
 			</td>
 			<td><!-- Stars -->
-				<% if project.githubData?.watchers: %>
-					<%= project.githubData?.watchers %>
+				<% if project.stars: %>
+					<%= project.stars %>
 					<i class="icon star"></i>
 				<% end %>
 			</td>
@@ -33,18 +33,16 @@ layout: 'default'
 				<% end %>
 			</td>
 			<td><!-- Language -->
-				<% if project.githubData?.language: %>
-					<%= project.githubData?.language %>
+				<%= project.language or '' %>
+			</td>
+			<td data-sort-value="<%= @moment(project.created_at or 0).unix() %>"><!-- Created -->
+				<% if project.created_at: %>
+					<%= @moment(project.created_at).fromNow() %>
 				<% end %>
 			</td>
-			<td data-sort-value="<%= @moment(project.githubData?.created_at or 0).unix() %>"><!-- Created -->
-				<% if project.githubData?.created_at: %>
-					<%= @moment(project.githubData.created_at).fromNow() %>
-				<% end %>
-			</td>
-			<td data-sort-value="<%= @moment(project.githubData?.pushed_at or 0).unix() %>"><!-- Updated -->
-				<% if project.githubData?.pushed_at: %>
-					<%= @moment(project.githubData.pushed_at).fromNow() %>
+			<td data-sort-value="<%= @moment(project.pushed_at or 0).unix() %>"><!-- Updated -->
+				<% if project.updated_at: %>
+					<%= @moment(project.updated_at).fromNow() %>
 				<% end %>
 			</td>
 			<td><!-- Source -->
@@ -69,6 +67,7 @@ layout: 'default'
 			<th colspan="8">
 				<a href="https://github.com/jaspervdj/static-site-generator-comparison/edit/master/list.yaml" title="Update this static site generator listing" class="ui blue labeled icon button"><i class="list icon"></i> Update Listing</a>
 				<a href="https://github.com/bevry/staticsitegenerators" title="Update this website&rsquo;s content" class="ui blue labeled icon button"><i class="column layout icon"></i> Update Website</a>
+				<a href="./list.json" title="Get the listing in the JSON data format" class="ui grey labeled icon button"><i class="text file icon"></i> JSON Data</a>
 			</th>
 	</tr></tfoot>
 </table>

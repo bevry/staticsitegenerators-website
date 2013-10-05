@@ -1,5 +1,5 @@
 # Prepare
-projects = {}
+projects = []
 websiteVersion = require('./package.json').version
 
 # The DocPad Configuration File
@@ -116,13 +116,14 @@ docpadConfig = {
 				# Prepare the entries for the projects
 				# and extract the repo names
 				repoFullNames = []
+				projectsMap = []
 				for entry in data
 					repoFullNames.push(entry.github)  if entry.github
 					key = (entry.github or entry.website or '').toLowerCase()
 					unless key
 						console.log 'missing details for:', entry
 						continue
-					projects[key] = entry
+					projectsMap[key] = entry
 
 				# Fetch the github data for the repos
 				docpad.log 'info', "Fetching the github information for the static site generators, all #{repoFullNames.length} of them"
@@ -134,16 +135,40 @@ docpadConfig = {
 						key = githubData.full_name.toLowerCase()
 
 						# Confirm existance as name may have changed from the listing
-						unless projects[key]?
+						unless projectsMap[key]?
 							console.log githubData.full_name, 'is missing'
 							continue
 
 						# Apply github data
-						projects[key].githubData = githubData
+						projectsMap[key].githubData = githubData
 
 						# Ensure website
-						if !projects[key].website and githubData.homepage and githubData.homepage.toLowerCase().indexOf('github.com/'+key) is -1
-							projects[key].website = githubData.homepage
+						if !projectsMap[key].website and githubData.homepage and githubData.homepage.toLowerCase().indexOf('github.com/'+key) is -1
+							projectsMap[key].website = githubData.homepage
+
+					# Prepare the extra data and add the projects listing
+					for own key,project of projectsMap
+						projects.push
+							name: project.name
+							website: project.website?.replace(/^.+\/\/(www\.)?|\/+$/g, '') or null
+							github: project.github or null
+							license: project.license or null
+							description: project.githubData?.description or null
+							stars: project.githubData?.watchers or null
+							language: project.githubData?.language or null
+							created_at: project.githubData?.created_at or null
+							updated_at: project.githubData?.pushed_at or null
+
+					# Sort the projects
+					projects = projects.sort (a,b) ->
+						A = a.name.toLowerCase()
+						B = b.name.toLowerCase()
+						if A is B
+							0
+						else if A < B
+							-1
+						else
+							1
 
 					# Complete
 					docpad.log 'info', "Fetched the github information for the static site generators, all #{repos.length} of them"
