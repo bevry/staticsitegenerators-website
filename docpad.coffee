@@ -147,6 +147,7 @@ docpadConfig = {
 							projectsMap[key].website = githubData.homepage
 
 					# Prepare the extra data and add the projects listing
+					projects = []
 					for own key,project of projectsMap
 						projects.push
 							name: project.name
