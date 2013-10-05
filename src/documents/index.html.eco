@@ -40,7 +40,7 @@ layout: 'default'
 					<%= @moment(project.created_at).fromNow() %>
 				<% end %>
 			</td>
-			<td data-sort-value="<%= @moment(project.pushed_at or 0).unix() %>"><!-- Updated -->
+			<td data-sort-value="<%= @moment(project.updated_at or 0).unix() %>"><!-- Updated -->
 				<% if project.updated_at: %>
 					<%= @moment(project.updated_at).fromNow() %>
 				<% end %>
