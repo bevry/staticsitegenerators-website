@@ -29,7 +29,7 @@
 		<h1 class="ui block header">
 			<%= @site.title %>
 			<div class="sub header">
-				<%= @site.description %>
+				<%= @site.description %> &mdash; all <%= @getProjects().length %> of them!
 				<br/>
 				<%- @getServiceButtons() %>
 			</div>
