@@ -152,10 +152,10 @@ docpadConfig = {
 						projects.push
 							# Listing Only
 							name: project.name
-							website: project.website or null
 							github: project.github or null
 							license: project.license or null
 							# Listing or GitHub
+							website: project.website or project.githubData?.homepage or null
 							description: project.description or project.githubData?.description or null
 							language: project.language or project.githubData?.language or null
 							created_at: project.created_at or project.githubData?.created_at or null
