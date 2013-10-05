@@ -150,14 +150,17 @@ docpadConfig = {
 					projects = []
 					for own key,project of projectsMap
 						projects.push
+							# Listing Only
 							name: project.name
 							website: project.website or null
 							github: project.github or null
 							license: project.license or null
-							description: project.githubData?.description or null
+							# Listing or GitHub
+							description: project.description or project.githubData?.description or null
+							language: project.language or project.githubData?.language or null
+							created_at: project.created_at or project.githubData?.created_at or null
+							# GitHub only
 							stars: project.githubData?.watchers or null
-							language: project.githubData?.language or null
-							created_at: project.githubData?.created_at or null
 							updated_at: project.githubData?.pushed_at or null
 
 					# Sort the projects
