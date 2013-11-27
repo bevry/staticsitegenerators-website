@@ -57,7 +57,7 @@ docpadConfig = {
 			# The website's scripts
 			scripts: [
 				'/vendor/semanticui/javascript/semantic.min.js'
-				'//jlukic.github.io/Semantic-UI/javascript/library/tablesort.js'
+				'//semantic-ui.com/javascript/library/tablesort.js'
 				'/scripts/script.js'
 			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
