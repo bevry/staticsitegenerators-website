@@ -20,7 +20,7 @@ docpadConfig = {
 	templateData:
 
 		# Moment
-		moment: require('moment')
+		moment: (try require('moment'))
 
 		# Specify some site properties
 		site:
@@ -57,7 +57,7 @@ docpadConfig = {
 			# The website's scripts
 			scripts: [
 				'/vendor/semanticui/javascript/semantic.min.js'
-				'//cdnjs.cloudflare.com/ajax/libs/tablesort/1.6.1/tablesort.min.js'
+				'//semantic-ui.com/javascript/library/tablesort.js'
 				'/scripts/script.js'
 			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
