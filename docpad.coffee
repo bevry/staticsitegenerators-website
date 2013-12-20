@@ -96,6 +96,15 @@ docpadConfig = {
 		# Get Projects
 		getProjects: -> projects
 
+
+	# =================================
+	# DocPad Collections
+
+	collections:
+		regenerateOnWebhook: (database) ->
+			return database.findAllLive(regenerateOnWebhook:true)
+
+
 	# =================================
 	# DocPad Events
 
@@ -208,7 +217,7 @@ docpadConfig = {
 			server.all '/regenerate', (req,res) ->
 				if req.query?.key is process.env.WEBHOOK_KEY
 					docpad.log('info', 'Regenerating started from webhook')
-					docpad.action 'generate', (err) ->
+					docpad.action 'generate', {collection:docpad.getCollection('regenerateOnWebhook')}, (err) ->
 						if err
 							res.send(500, err?.message or err)
 						else
