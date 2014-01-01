@@ -11,6 +11,8 @@ docpadConfig = {
 
 	rengerateEvery: 1000*60*60*24  # day
 
+	logLevel: 7
+
 
 	# =================================
 	# Template Data
@@ -119,7 +121,7 @@ docpadConfig = {
 
 			# Fetch the latest projects
 			docpad.log 'info', 'Fetching the latest static site generators'
-			require('feedr').create(log: docpad.log).readFeed 'http://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
+			require('feedr').create(log: docpad.log).readFeed 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
 				return next(err)  if err
 
 				# Prepare the entries for the projects
