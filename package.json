@@ -28,8 +28,8 @@
     "docpad-plugin-stylus": "~2.5.0",
     "docpad-plugin-services": "~2.5.0",
     "getrepos": "~1.0.5",
-    "feedr": "~2.7.5",
-    "moment": "~2.4.0",
+    "feedr": "~2.7.6",
+    "moment": "~2.5.0",
     "docpad-plugin-coffeescript": "~2.2.3"
   },
   "devDependencies": {
