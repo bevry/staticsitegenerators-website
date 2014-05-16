@@ -10,7 +10,7 @@ docpadConfig = {
 	# =================================
 	# DocPad Properties
 
-	rengerateEvery: 1000*60*60*24  # day
+	rengerateEvery: maxAge = 1000*60*60*24  # day
 
 	logLevel: 7
 
@@ -123,7 +123,7 @@ docpadConfig = {
 
 			# Fetch the latest projects
 			docpad.log 'info', 'Fetching the latest static site generators'
-			require('feedr').create(log: docpad.log).readFeed 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
+			require('feedr').create({log: docpad.log}).readFeed 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
 
 				# Handle errors kind of safely
 				if err
@@ -144,7 +144,7 @@ docpadConfig = {
 
 				# Fetch the github data for the repos
 				docpad.log 'info', "Fetching the github information for the static site generators, all #{repoFullNames.length} of them"
-				require('getrepos').create(log: docpad.log).fetchRepos repoFullNames, (err,repos) ->
+				require('getrepos').create(log: docpad.log, cache:maxAge).fetchRepos repoFullNames, (err,repos) ->
 					return next(err)  if err
 
 					# Prepare the proejcts with the github data

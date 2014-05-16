@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<header class="ui block header">
+	<h1>
+		<%= @site.title %>
+		<div class="sub header">
+			<%= @site.description %> &mdash; all <%= @getProjects().length %> of them!
+		</div>
+	</h1>
+
+	<iframe class="service-buttons-container"></iframe>
+
+	<% if @error: %>
+		<div class="error">
+			An error has occured when parsing the latest static site generators data feed:
+			<pre><code><%= @error %></code></pre>
+			<br/>
+			Please <a href="https://github.com/jaspervdj/static-site-generator-comparison/issues/new">create an issue</a> and let us know about this right away!
+		</div>
+	<% end %>
+</header>
+
+<article>
+	<%- @content %>
+</article>
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="/vendor/jquery.js"><\/script>')</script>
+
+<!-- DocPad Scripts + Our Own -->
+<%- @getBlock('scripts').add(@site.scripts).toHTML() %>
