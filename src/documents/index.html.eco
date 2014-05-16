@@ -7,7 +7,7 @@ regenerateOnWebhook: true
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Stars</th>
+			<th class="numeric-sort">Stars</th>
 			<th>License</th>
 			<th>Language</th>
 			<th class="numeric-sort">Created</th>
@@ -22,7 +22,7 @@ regenerateOnWebhook: true
 			<td class="project title" data-title="<%= project.name %>" data-content="<%= project.githubData?.description or 'No description' %>"><!-- Name -->
 				<%= project.name %>
 			</td>
-			<td><!-- Stars -->
+			<td data-sort-value="<%= project.stars or 0 %>"><!-- Stars -->
 				<% if project.stars: %>
 					<%= project.stars %>
 					<i class="icon star"></i>
