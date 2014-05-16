@@ -1,6 +1,6 @@
 {
   "name": "staticsitegenerators",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators",
@@ -27,7 +27,7 @@
     "docpad-plugin-coffeescript": "~2.4.0",
     "docpad-plugin-eco": "~2.0.3",
     "docpad-plugin-raw": "~2.3.2",
-    "docpad-plugin-services": "~2.5.0",
+    "docpad-plugin-services": "~2.6.0",
     "docpad-plugin-stylus": "~2.6.0",
     "feedr": "~2.8.0",
     "getrepos": "~1.0.5",
