@@ -4,8 +4,10 @@ $ ->
 			.tablesort()
 			.on('tablesort:complete', initPopups)
 			.find('th.numeric-sort')
-				.data 'sortBy', (th, td, sorter)  ->
-					parseInt(td.data('sort-value'), 10)
+      .data('sortBy', (th, td, sorter)  ->
+        parseInt(td.data('sort-value'), 10)
+      ).end()
+      .floatThead(useAbsolutePositioning: false)
 	initPopups = ->
 		$('.project.title')
 			.popup()

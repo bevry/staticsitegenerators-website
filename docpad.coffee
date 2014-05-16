@@ -59,7 +59,8 @@ docpadConfig = {
 			# The website's scripts
 			scripts: [
 				'/vendor/semanticui/javascript/semantic.min.js'
-				'//semantic-ui.com/javascript/library/tablesort.js'
+				'//cdnjs.cloudflare.com/ajax/libs/floatthead/1.2.7/jquery.floatThead.min.js'
+				'/scripts/tablesort.js'
 				'/scripts/script.js'
 			].map (url) -> "#{url}?websiteVersion=#{websiteVersion}"
 
