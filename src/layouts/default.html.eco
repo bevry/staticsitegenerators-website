@@ -21,26 +21,35 @@
 	<%- @getBlock('styles').add(@site.styles).toHTML() %>
 
 	<!-- Icons -->
-	<!-- Favicon -->
-	<link rel="shortcut icon" href="/icons/favicon.ico" />
+	<link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <body>
-	<header>
-		<h1 class="ui block header">
+	<header class="ui block header">
+		<h1>
 			<%= @site.title %>
 			<div class="sub header">
 				<%= @site.description %> &mdash; all <%= @getProjects().length %> of them!
-				<br/>
-				<%- @getServiceButtons() %>
 			</div>
 		</h1>
+
+		<div class="service-buttons-container"></div>
+
+		<% if @error: %>
+			<div class="error">
+				An error has occured when parsing the latest static site generators data feed:
+				<pre><code><%= @error %></code></pre>
+				<br/>
+				Please <a href="https://github.com/jaspervdj/static-site-generator-comparison/issues/new">create an issue</a> and let us know about this right away!
+			</div>
+		<% end %>
 	</header>
+
 	<article>
 		<%- @content %>
 	</article>
 
 	<!-- jQuery -->
-	<script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script>window.jQuery || document.write('<script src="/vendor/jquery.js"><\/script>')</script>
 
 	<!-- DocPad Scripts + Our Own -->

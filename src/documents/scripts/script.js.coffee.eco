@@ -18,3 +18,5 @@ $ ->
 
 	initSort()
 	initPopups()
+
+	$('.service-buttons-container').get(0).innerHTML = '''<%- @getServiceButtons() %>'''

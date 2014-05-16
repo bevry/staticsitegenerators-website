@@ -1,6 +1,7 @@
 # Prepare
 projects = []
 websiteVersion = require('./package.json').version
+lastSucessfulFeedResult = null
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
@@ -123,7 +124,11 @@ docpadConfig = {
 			# Fetch the latest projects
 			docpad.log 'info', 'Fetching the latest static site generators'
 			require('feedr').create(log: docpad.log).readFeed 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
-				return next(err)  if err
+
+				# Handle errors kind of safely
+				if err
+					opts.templateData.error = err.message
+					return next()
 
 				# Prepare the entries for the projects
 				# and extract the repo names
