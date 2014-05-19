@@ -7,7 +7,7 @@ $ ->
 			.data('sortBy', (th, td, sorter)  ->
 				parseInt(td.data('sort-value'), 10)
 			).end()
-			.floatThead(useAbsolutePositioning: false)
+			.floatThead(useAbsolutePositioning: false, zIndex: 10)
 	initPopups = ->
 		$('.project.title')
 			.popup()
