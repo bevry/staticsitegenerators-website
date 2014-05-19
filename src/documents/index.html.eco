@@ -19,7 +19,7 @@ regenerateOnWebhook: true
 	<tbody>
 		<% for project in @getProjects(): %>
 		<tr class="project">
-			<td class="project title" data-title="<%= project.name %>" data-content="<%= project.githubData?.description or 'No description' %>"><!-- Name -->
+			<td class="project title" data-title="<%= project.name %>" data-content="<%= project.description or 'No description' %>"><!-- Name -->
 				<%= project.name %>
 			</td>
 			<td><!-- Stars -->
