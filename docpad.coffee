@@ -2,17 +2,16 @@
 projects = []
 websiteVersion = require('./package.json').version
 lastSucessfulFeedResult = null
+Feedr = null
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
-docpadConfig = {
+docpadConfig =
 
 	# =================================
 	# DocPad Properties
 
 	rengerateEvery: maxAge = 1000*60*60*24  # day
-
-	logLevel: 7
 
 
 	# =================================
@@ -120,14 +119,22 @@ docpadConfig = {
 		generateBefore: (opts, next) ->
 			return next()  unless opts.reset is true
 			docpad = @docpad
+			Feedr ?= require('feedr').create({log: docpad.log})
 
 			# Fetch the latest projects
 			docpad.log 'info', 'Fetching the latest static site generators'
-			require('feedr').create({log: docpad.log}).readFeed 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml', (err, data) ->
+			feed =
+				url: 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml'
+				parse: 'yaml'
+				cache: false
+			Feedr.readFeed feed, (err, data) ->
+				# Handle no data
+				if !err and !data
+					err = new Error("No data was retrieved from the yaml file!")
 
 				# Handle errors kind of safely
 				if err
-					opts.templateData.error = err.message
+					opts.templateData.error = (err.stack or err.message or err).toString()
 					return next()
 
 				# Prepare the entries for the projects
@@ -235,7 +242,7 @@ docpadConfig = {
 
 			# Return
 			return true
-}
+
 
 # Export our DocPad Configuration
 module.exports = docpadConfig

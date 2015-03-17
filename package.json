@@ -4,13 +4,33 @@
   "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators",
+  "licenses": [
+    {
+      "type": "MIT",
+      "for": "code"
+    },
+    {
+      "type": "CC-BY-4.0",
+      "for": "everything else (including content, media and design)"
+    }
+  ],
+  "badges": {
+    "travis": true,
+    "npm": false,
+    "npmdownloads": false,
+    "david": false,
+    "daviddev": false,
+    "gratipay": "bevry",
+    "flattr": "344188/balupton-on-Flattr",
+    "paypal": "QB8GQPZAH84N6",
+    "bitcoin": "https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a",
+    "wishlist": "http://amzn.com/w/2F8TXKSNAFG4V"
+  },
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
-  "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-  ],
+  "contributors": [],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators/issues"
   },
@@ -19,22 +39,23 @@
     "url": "http://github.com/bevry/staticsitegenerators.git"
   },
   "engines": {
-    "node": "0.10",
-    "npm": "1.4"
+    "node": "0.12",
+    "npm": "2"
   },
   "dependencies": {
-    "docpad": "~6.64.3",
-    "docpad-plugin-coffeescript": "~2.4.0",
-    "docpad-plugin-eco": "~2.0.3",
-    "docpad-plugin-raw": "~2.3.2",
+    "docpad": "~6.76.0",
+    "docpad-plugin-coffeescript": "~2.5.0",
+    "docpad-plugin-eco": "~2.1.0",
+    "docpad-plugin-raw": "~2.4.0",
     "docpad-plugin-services": "~2.6.0",
-    "docpad-plugin-stylus": "~2.6.0",
-    "feedr": "~2.8.0",
-    "getrepos": "~1.0.5",
-    "moment": "~2.6.0"
+    "docpad-plugin-stylus": "~2.9.0",
+    "feedr": "^2.12.0",
+    "getrepos": "^1.0.5",
+    "moment": "^2.9.0"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "~2.6.0"
+    "docpad-plugin-livereload": "~2.6.1",
+    "projectz": "^0.5.0"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }
