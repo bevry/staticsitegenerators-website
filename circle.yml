@@ -1,0 +1,20 @@
+machine:
+  node:
+    version: "0.12"
+general:
+  branches:
+    ignore:
+      - gh-pages
+dependencies:
+  cache_directories:
+    - "node_modules"
+machine:
+  pre:
+    - git config --global user.email "circle@bevry.me"
+    - git config --global user.name "Bevry CircleCI Deployer"
+deployment:
+  production:
+    branch: master
+    owner: bevry
+    commands:
+      - npm run-script deploy
