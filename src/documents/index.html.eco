@@ -1,6 +1,5 @@
 ---
 layout: 'page'
-regenerateOnWebhook: true
 ---
 
 <table class="projects ui table segment sortable">

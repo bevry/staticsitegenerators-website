@@ -43,7 +43,8 @@
     "npm": "2"
   },
   "dependencies": {
-    "docpad": "~6.76.0",
+    "docpad": "~6.78.1",
+    "docpad-plugin-cleanurls": "~2.8.1",
     "docpad-plugin-coffeescript": "~2.5.0",
     "docpad-plugin-eco": "~2.1.0",
     "docpad-plugin-raw": "~2.4.0",
@@ -54,13 +55,15 @@
     "moment": "^2.9.0"
   },
   "devDependencies": {
+    "docpad-plugin-ghpages": "~2.4.4",
     "docpad-plugin-livereload": "~2.6.1",
     "projectz": "^0.5.0"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
     "start": "node_modules/.bin/docpad-server",
-    "test": "node_modules/.bin/docpad generate --debug --silent",
-    "info": "node_modules/.bin/docpad info --silent"
+    "test": "node_modules/.bin/docpad generate --silent --debug",
+    "info": "node_modules/.bin/docpad info --silent",
+    "deploy": "node_modules/.bin/docpad deploy-ghpages --silent --env static"
   }
 }
