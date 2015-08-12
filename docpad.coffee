@@ -3,6 +3,7 @@ projects = []
 websiteVersion = require('./package.json').version
 lastSucessfulFeedResult = null
 feedr = null
+maxAge = 1000*60*60*24  # day
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
@@ -148,7 +149,7 @@ docpadConfig =
 
 				# Fetch the github data for the repos
 				docpad.log 'info', "Fetching the github information for the static site generators, all #{repoFullNames.length} of them"
-				require('getrepos').create(log: docpad.log, cache:maxAge).fetchRepos repoFullNames, (err,repos) ->
+				require('getrepos').create(log: docpad.log, cache: maxAge).fetchRepos repoFullNames, (err,repos) ->
 					return next(err)  if err
 
 					# Prepare the proejcts with the github data
