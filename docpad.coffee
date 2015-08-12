@@ -9,12 +9,6 @@ feedr = null
 docpadConfig =
 
 	# =================================
-	# DocPad Properties
-
-	rengerateEvery: maxAge = 1000*60*60*24  # day
-
-
-	# =================================
 	# Template Data
 	# These are variables that will be accessible via our templates
 	# To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
@@ -95,8 +89,17 @@ docpadConfig =
 	# =================================
 	# Plugins
 
+	# Define a custom collection for cleanurls that ignores the documents we don't want
+	collections:
+		cleanurls: ->
+			@getCollection('html').findAllLive(cleanurls: true)
+
+	# =================================
+	# Plugins
+
 	plugins:
 		cleanurls:
+			collectionName: 'cleanurls'
 			advancedRedirects: [
 				# Old URLs
 				[/^https?:\/\/(?:www\.staticsitegenerators\.net|staticsitegenerators\.herokuapp\.com|bevry\.github\.io\/staticsitegenerators)(.*)$/, 'https://staticsitegenerators.net$1']
