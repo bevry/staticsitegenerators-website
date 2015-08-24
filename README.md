@@ -21,7 +21,7 @@ The definitive listing of Static Site Generators
 
 ## How it works
 
-This is a [DocPad](http://docpad.org) website that automatically pulls in the latest listing data from [jaspervdj/static-site-generator-comparison](https://github.com/jaspervdj/static-site-generator-comparison) and renders it nicely.
+This is a [DocPad](http://docpad.org) website that automatically pulls in the latest listing data from [bevry/staticsitegenerators-list](https://github.com/bevry/staticsitegenerators-list) and renders it nicely.
 
 In the future we'd like to add the following to the listing:
 
@@ -53,7 +53,7 @@ As well as add a link to the [Go Static Campaign](https://github.com/bevry/gosta
 ## FAQ
 
 ### My favourite SSG is not listed!
-[Add it here](https://github.com/jaspervdj/static-site-generator-comparison/edit/master/list.yaml)
+[Add it here](https://github.com/bevry/staticsitegenerators-list/edit/master/list.yaml)
 
 ### This website sucks, I could do better!
 Please do, but please do it as part of this community effort. This effort has only just begun, and we need as little fragmentation in the community as possible if we are to get more people onboard the static site generator movement. Please provide your suggestions in the issue tracker, as well as submit your pull requests. We'd be hugely appreciative! Together, we can create something great.
