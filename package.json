@@ -30,7 +30,14 @@
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
-  "contributors": [],
+  "contributors": [
+    "balupton (https://github.com/balupton)",
+    "GeorgeErickson (https://github.com/GeorgeErickson)",
+    "ginader (https://github.com/ginader)",
+    "mkoryak (https://github.com/mkoryak)",
+    "naufraghi (https://github.com/naufraghi)",
+    "totallymike (https://github.com/totallymike)"
+  ],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators-website/issues"
   },
