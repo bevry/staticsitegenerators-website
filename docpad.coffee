@@ -122,7 +122,7 @@ docpadConfig =
 			# Fetch the latest projects
 			docpad.log 'info', 'Fetching the latest static site generators'
 			feed =
-				url: 'https://raw.github.com/jaspervdj/static-site-generator-comparison/master/list.yaml'
+				url: 'https://raw.github.com/bevry/staticsitegenerators-list/master/list.yaml'
 				parse: 'yaml'
 				cache: false
 			feedr.readFeed feed, (err, data) ->
@@ -149,7 +149,12 @@ docpadConfig =
 
 				# Fetch the github data for the repos
 				docpad.log 'info', "Fetching the github information for the static site generators, all #{repoFullNames.length} of them"
-				require('getrepos').create(log: docpad.log, cache: maxAge).fetchRepos repoFullNames, (err,repos) ->
+				getReposConfig =
+					log: docpad.log
+					cache: maxAge
+					githubClientId: process.env.BEVRY_GITHUB_CLIENT_ID
+					githubClientSecret: process.env.BEVRY_GITHUB_CLIENT_SECRET
+				require('getrepos').create(getReposConfig).fetchRepos repoFullNames, (err,repos) ->
 					return next(err)  if err
 
 					# Prepare the proejcts with the github data

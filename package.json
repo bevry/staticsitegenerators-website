@@ -1,9 +1,9 @@
 {
-  "name": "staticsitegenerators",
+  "name": "staticsitegenerators-website",
   "version": "0.1.6",
   "private": true,
   "description": "The definitive listing of Static Site Generators",
-  "homepage": "https://github.com/bevry/staticsitegenerators",
+  "homepage": "https://github.com/bevry/staticsitegenerators-website",
   "licenses": [
     {
       "type": "MIT",
@@ -32,11 +32,11 @@
   ],
   "contributors": [],
   "bugs": {
-    "url": "https://github.com/bevry/staticsitegenerators/issues"
+    "url": "https://github.com/bevry/staticsitegenerators-website/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/bevry/staticsitegenerators.git"
+    "url": "http://github.com/bevry/staticsitegenerators-website.git"
   },
   "engines": {
     "node": "0.12",
