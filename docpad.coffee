@@ -4,6 +4,21 @@ websiteVersion = require('./package.json').version
 lastSucessfulFeedResult = null
 feedr = null
 maxAge = 1000*60*60*24  # day
+failOnError = true # otherwise Boolean(process.env.TRAVIS_NODE_VERSION)
+handleError = (err, opts, next) ->
+	errorString = (err.stack or err.message or err).toString()
+	if failOnError
+		# Exit with the error
+		next(err)
+	else
+		# Output the error to the console
+		console.error(errorString)
+		
+		# Pass the error to our template data for our template to render it
+		opts.templateData.error = errorString
+		
+		# Continue with execution so the error can be displayed
+		next()
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
@@ -126,15 +141,9 @@ docpadConfig =
 				parse: 'yaml'
 				cache: false
 			feedr.readFeed feed, (err, data) ->
-				# Handle no data
-				if !err and !data
-					err = new Error("No data was retrieved from the yaml file!")
-
-				# Handle errors kind of safely
-				if err
-					opts.templateData.error = (err.stack or err.message or err).toString()
-					return next()
-
+				return handleError(err)  if err
+				return handleError(new Error("No data was retrieved from the yaml file!"))  unless data
+				
 				# Prepare the entries for the projects
 				# and extract the repo names
 				repoFullNames = []
@@ -154,8 +163,8 @@ docpadConfig =
 					cache: maxAge
 					githubClientId: process.env.BEVRY_GITHUB_CLIENT_ID
 					githubClientSecret: process.env.BEVRY_GITHUB_CLIENT_SECRET
-				require('getrepos').create(getReposConfig).fetchRepos repoFullNames, (err,repos) ->
-					return next(err)  if err
+				require('getrepos').create(getReposConfig).fetchRepos repoFullNames, (err, repos) ->
+					return handleError(err)  if err
 
 					# Prepare the proejcts with the github data
 					for githubData in repos
