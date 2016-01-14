@@ -19,6 +19,8 @@ layout: default
 			<br/>
 			Please <a href="https://github.com/jaspervdj/static-site-generator-comparison/issues/new">create an issue</a> and let us know about this right away!
 		</div>
+	<% else: %>
+		<!-- SITE BUILT SUCCESSFULLY WITHOUT ERRORS -->
 	<% end %>
 </header>
 
