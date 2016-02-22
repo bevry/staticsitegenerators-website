@@ -72,7 +72,8 @@ docpadConfig =
 					applicationId: '266367676718271'
 				githubStarButton: 'bevry/staticsitegenerators'
 
-				googleAnalytics: 'UA-35505181-5'
+				#googleAnalytics: 'UA-35505181-5'
+				# ^ no more external analytics, cloudflare gives us what we need
 
 
 		# -----------------------------
