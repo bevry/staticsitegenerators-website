@@ -1,4 +1,4 @@
-# August 25, 2015
+# 2016 January 23
 # https://docpad.org/docs/deploy
 
 # Use the latest travis infrastructure
@@ -7,7 +7,7 @@ sudo: false
 # We use node
 language: node_js
 node_js:
-  - iojs
+  - 6
 cache:
   directories:
     - node_modules

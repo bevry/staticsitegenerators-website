@@ -1,30 +1,32 @@
 {
+  "title": "Static Site Generators Website",
   "name": "staticsitegenerators-website",
   "version": "0.1.6",
   "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
-  "licenses": [
-    {
-      "type": "MIT",
-      "for": "code"
-    },
-    {
-      "type": "CC-BY-4.0",
-      "for": "everything else (including content, media and design)"
-    }
-  ],
+  "licenses": "(MIT AND CC-BY-4.0)",
   "badges": {
-    "travis": true,
-    "npm": false,
-    "npmdownloads": false,
-    "david": false,
-    "daviddev": false,
-    "gratipay": "bevry",
-    "flattr": "344188/balupton-on-Flattr",
-    "paypal": "QB8GQPZAH84N6",
-    "bitcoin": "https://coinbase.com/checkouts/9ef59f5479eec1d97d63382c9ebcb93a",
-    "wishlist": "http://amzn.com/w/2F8TXKSNAFG4V"
+    "list": [
+      "travisci",
+      "---",
+      "slackin",
+      "patreon",
+      "gratipay",
+      "flattr",
+      "paypal",
+      "bitcoin",
+      "wishlist"
+    ],
+    "config": {
+      "patreonUsername": "bevry",
+      "gratipayUsername": "bevry",
+      "flattrUsername": "balupton",
+      "paypalURL": "https://bevry.me/paypal",
+      "bitcoinURL": "https://bevry.me/bitcoin",
+      "wishlistURL": "https://bevry.me/wishlist",
+      "slackinURL": "https://slack.bevry.me"
+    }
   },
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
   "maintainers": [
@@ -46,31 +48,31 @@
     "url": "http://github.com/bevry/staticsitegenerators-website.git"
   },
   "engines": {
-    "node": "0.12",
-    "npm": "2"
+    "node": "6",
+    "npm": "3"
   },
   "dependencies": {
-    "docpad": "~6.78.1",
-    "docpad-plugin-cleanurls": "~2.8.1",
-    "docpad-plugin-coffeescript": "~2.5.0",
-    "docpad-plugin-eco": "~2.1.0",
-    "docpad-plugin-raw": "~2.4.0",
-    "docpad-plugin-services": "~2.6.0",
-    "docpad-plugin-stylus": "~2.9.0",
-    "feedr": "^2.12.0",
-    "getrepos": "^1.0.5",
-    "moment": "^2.9.0"
+    "core-js": "^2.4.1",
+    "docpad": "^6.79.0",
+    "docpad-plugin-cleanurls": "^2.8.1",
+    "docpad-plugin-coffeescript": "^2.5.0",
+    "docpad-plugin-eco": "^2.1.0",
+    "docpad-plugin-raw": "^2.4.1",
+    "docpad-plugin-services": "^2.6.0",
+    "docpad-plugin-stylus": "^2.11.0",
+    "moment": "^2.9.0",
+    "staticsitegenerators": "^0.2.0"
   },
   "devDependencies": {
     "docpad-plugin-ghpages": "~2.4.4",
     "docpad-plugin-livereload": "~2.6.1",
-    "projectz": "^0.5.0"
+    "projectz": "^1.0.0"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
-    "start": "node_modules/.bin/docpad-server",
-    "test": "node_modules/.bin/docpad generate --silent --debug",
-    "info": "node_modules/.bin/docpad info --silent",
-    "deploy": "node_modules/.bin/docpad deploy-ghpages --silent --env static"
+    "start": "docpad-server",
+    "test": "docpad generate --silent --debug",
+    "info": "docpad info --silent",
+    "deploy": "docpad deploy-ghpages --silent --env static"
   }
 }

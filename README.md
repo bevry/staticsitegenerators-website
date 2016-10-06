@@ -1,4 +1,4 @@
-# Static Site Generators
+<!-- TITLE -->
 
 <!-- BADGES/ -->
 
@@ -39,8 +39,8 @@ As well as add a link to the [Go Static Campaign](https://github.com/bevry/gosta
 1. Clone the project and run the server
 
 	``` bash
-	git clone git://github.com/bevry/staticsitegenerators.git staticsitegenerators
-	cd staticsitegenerators
+	git clone git://github.com/bevry/staticsitegenerators-website.git
+	cd staticsitegenerators-website
 	npm install
 	docpad run
 	```
@@ -59,7 +59,7 @@ As well as add a link to the [Go Static Campaign](https://github.com/bevry/gosta
 Please do, but please do it as part of this community effort. This effort has only just begun, and we need as little fragmentation in the community as possible if we are to get more people onboard the static site generator movement. Please provide your suggestions in the issue tracker, as well as submit your pull requests. We'd be hugely appreciative! Together, we can create something great.
 
 ### Why did you create this?
-There are so many SSG listings across the web, but we needed to have one that automatically stayed up to date as changes happened. The DocPad dynamic infrasture here will allow that to happen. We've also come to find the SSG movement is struggling to get enterprise clients onboard, because they are all trying to create their own fragmented listings pitching their own static site generators, which doesn't help anyone. We need one listing, and one effort, that the entire SSG community can get behind. As such, we will list all SSGs in the most humble of ways and not discriminate against any.
+There are so many SSG listings across the web, but we needed to have one that automatically stayed up to date as changes happened. The DocPad dynamic infrastructure here will allow that to happen. We've also come to find the SSG movement is struggling to get enterprise clients onboard, because they are all trying to create their own fragmented listings pitching their own static site generators, which doesn't help anyone. We need one listing, and one effort, that the entire SSG community can get behind. As such, we will list all SSGs in the most humble of ways and not discriminate against any.
 
 
 <!-- LICENSE/ -->
@@ -76,5 +76,3 @@ and licensed under:
 - The [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)
 
 <!-- /LICENSE -->
-
-

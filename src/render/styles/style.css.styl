@@ -1,0 +1,119 @@
+table.sortable thead
+	background-color: #eee
+	color: #666666
+	font-weight: bold
+	cursor: pointer
+
+h1
+h2
+	margin: 0
+	padding: 0
+h1
+	font-size: 1.5em
+h2
+	font-size: 1em
+
+a
+	text-decoration:  none
+
+body.buttons
+	overflow: hidden
+
+#service-buttons-container
+	margin: 0.5em 0
+	height: 2em
+	max-height: 2em
+	overflow: hidden
+	border: none
+	background: transparent
+	width: 100%
+
+.service-buttons
+	.social-buttons
+	.service-badges
+		display: block
+		margin-top: 0.5em
+
+	.service-button
+		display: inline-block
+		width: 100px
+		text-align: left
+		overflow: hidden
+		&.google-plus-one-button
+			width: 80px
+		&.hacker-news-submit-button
+			width: 100px
+		&.twitter-follow-button
+		&.fury-button
+		&.gittip-button
+			width: 130px
+		&.reddit-submit-button
+			width: 140px
+			iframe
+				margin-bottom: -3px
+
+.projects
+	cursor: default
+	border-collapse: collapse
+
+	th
+		font-size: 110%
+		color: black
+		font: -apple-system, serif
+		padding: 0.4em 0.5em
+		border: 1px solid #999
+		border-right: 0
+
+	tr td
+		padding: 1em 0
+
+	// Name
+	th
+	td
+		&:nth-child(2)
+			label
+				font-weight: bold
+				display: block
+			width: 100%
+			text-align: left
+	td
+		&:nth-child(2)
+			padding: 0.5em 0.5em
+			span
+				color: #777
+
+	// Stars
+	th
+	td
+		&:nth-child(1)
+			text-align: right
+	td:nth-child(1)
+		font-family: monospace
+
+	// License
+	// Language
+	th
+	td
+		&:nth-child(3)
+		&:nth-child(4)
+			text-align: center
+
+	// License
+	th
+	td
+		&:nth-child(3)
+			max-width: 8em
+
+	// Created
+	// Updated
+	th
+	td
+		&:nth-child(5)
+		&:nth-child(6)
+			min-width: 6em
+
+	tbody tr td
+		border-bottom: 1px solid #eee
+
+	tbody tr:hover
+		background: #eee

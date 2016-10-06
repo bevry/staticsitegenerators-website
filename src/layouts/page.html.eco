@@ -2,40 +2,29 @@
 layout: default
 ---
 
-<header class="ui block header">
+<header class="header">
 	<% if @error: %>
 		<h1>
 			<%= @site.title %>
-			<div class="sub header">
-				<%= @site.description %>.
-			</div>
 		</h1>
-		
-		<div class="error">
-			An error has occured when parsing the latest static site generators data feed:
-			<pre><code><%= @error %></code></pre>
-			<br/>
-			Please <a href="https://github.com/jaspervdj/static-site-generator-comparison/issues/new">create an issue</a> and let us know about this right away!
-		</div>
+		<h2>
+			<%= @site.description %>.
+		</h2>
 	<% else: %>
 		<h1>
 			<%= @site.title %>
-			<div class="sub header">
-				<%= @site.description %> &mdash; all <%= @getProjects().length %> of them!
-			</div>
 		</h1>
-	
-		<iframe class="service-buttons-container"></iframe>
+		<h2>
+			<%= @site.description %> &mdash; all <%= @listing.length %> of them!
+		</h2>
+
+		<iframe id="service-buttons-container"></iframe>
 	<% end %>
 </header>
 
 <article>
 	<%- @content %>
 </article>
-
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>window.jQuery || document.write('<script src="/vendor/jquery.js"><\/script>')</script>
 
 <!-- DocPad Scripts + Our Own -->
 <%- @getBlock('scripts').add(@site.scripts).toHTML() %>
