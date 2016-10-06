@@ -1,7 +1,7 @@
 {
   "title": "Static Site Generators Website",
   "name": "staticsitegenerators-website",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
