@@ -63,6 +63,8 @@ cleanurls: true
 	</tbody>
 </table>
 
-<a href="https://github.com/bevry/staticsitegenerators-list" title="Update this static site generator listing">Update Listing</a>
-<a href="https://github.com/bevry/staticsitegenerators-website" title="Update this website&rsquo;s content">Update Website</a>
-<a href="./list.json" title="Get the listing in the JSON data format">JSON Data</a>
+<footer>
+	<a href="https://github.com/bevry/staticsitegenerators-list" title="Update this static site generator listing">Update Listing</a>
+	<a href="https://github.com/bevry/staticsitegenerators-website" title="Update this website&rsquo;s content">Update Website</a>
+	<a href="./list.json" title="Get the listing in the JSON data format">JSON Data</a>
+</footer>
