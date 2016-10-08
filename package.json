@@ -61,7 +61,7 @@
     "docpad-plugin-services": "^2.6.0",
     "docpad-plugin-stylus": "^2.11.0",
     "moment": "^2.9.0",
-    "staticsitegenerators": "^0.2.1"
+    "bevry/staticsitegenerators-list": "^0.2.1"
   },
   "devDependencies": {
     "docpad-plugin-ghpages": "~2.4.4",
