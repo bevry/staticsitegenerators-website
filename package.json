@@ -71,7 +71,7 @@
   "main": "node_modules/.bin/docpad-server",
   "scripts": {
     "start": "docpad-server",
-    "test": "docpad generate --silent --debug",
+    "test": "docpad generate --silent",
     "info": "docpad info --silent",
     "deploy": "docpad deploy-ghpages --silent --env static"
   }
