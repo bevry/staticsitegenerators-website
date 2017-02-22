@@ -10,16 +10,19 @@
     "list": [
       "travisci",
       "---",
-      "slackin",
       "patreon",
+      "opencollective",
       "gratipay",
       "flattr",
       "paypal",
       "bitcoin",
-      "wishlist"
+      "wishlist",
+      "---",
+      "slackin"
     ],
     "config": {
       "patreonUsername": "bevry",
+      "opencollectiveUsername": "bevry",
       "gratipayUsername": "bevry",
       "flattrUsername": "balupton",
       "paypalURL": "https://bevry.me/paypal",
@@ -60,13 +63,13 @@
     "docpad-plugin-raw": "^2.4.1",
     "docpad-plugin-services": "^2.6.0",
     "docpad-plugin-stylus": "^2.11.0",
-    "moment": "^2.9.0",
-    "staticsitegenerators": "bevry/staticsitegenerators-list"
+    "moment": "^2.17.1",
+    "staticsitegenerators": "^1.0.0"
   },
   "devDependencies": {
     "docpad-plugin-ghpages": "~2.4.4",
-    "docpad-plugin-livereload": "~2.6.1",
-    "projectz": "^1.0.0"
+    "docpad-plugin-livereload": "~2.7.1",
+    "projectz": "^1.3.2"
   },
   "main": "node_modules/.bin/docpad-server",
   "scripts": {

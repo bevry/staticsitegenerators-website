@@ -1,5 +1,8 @@
+'use strict'
+
 // Prepare
 require('core-js')
+const ssgs = require('staticsitegenerators')
 const moment = require('moment')
 const websiteVersion = require('./package.json').version
 let listing = null
@@ -115,10 +118,13 @@ module.exports = {
 				opts.templateData.listing = listing
 				return next()
 			}
-			require('staticsitegenerators').render(opts, function (err, data) {
+			ssgs.remote(opts, function (err, data) {
 				if ( err )  return next(err)
-				listing = opts.templateData.listing = data
-				return next()
+				ssgs.render(data, opts, function (err, result) {
+					if ( err )  return next(err)
+					listing = opts.templateData.listing = result
+					return next()
+				})
 			})
 		}
 	}
