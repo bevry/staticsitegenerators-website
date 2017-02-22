@@ -5,7 +5,7 @@
   "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
-  "licenses": "(MIT AND CC-BY-4.0)",
+  "license": "(MIT AND CC-BY-4.0)",
   "badges": {
     "list": [
       "travisci",
@@ -36,12 +36,12 @@
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
   ],
   "contributors": [
-    "balupton (https://github.com/balupton)",
-    "GeorgeErickson (https://github.com/GeorgeErickson)",
-    "ginader (https://github.com/ginader)",
-    "mkoryak (https://github.com/mkoryak)",
-    "naufraghi (https://github.com/naufraghi)",
-    "totallymike (https://github.com/totallymike)"
+    "Benjamin Lupton (http://balupton.com)",
+    "George Erickson (gee.io)",
+    "Dirk Ginader (http://ginader.com)",
+    "Misha Koryak <mkoryak@gmail.com> (http://programmingdrunk.com)",
+    "Matteo Bertini <matteo@naufraghi.net> (http://www.slug.it/naufraghi/)",
+    "Michael Westbom <mike@totallymike.org> (https://github.com/totallymike)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators-website/issues"
