@@ -63,7 +63,7 @@ As well as add a link to the [Go Static Campaign](https://github.com/bevry/gosta
 ## FAQ
 
 ### My favourite SSG is not listed!
-[Add it here](https://github.com/bevry/staticsitegenerators-list/edit/master/list.yaml)
+[Add it here.](https://github.com/bevry/staticsitegenerators-list)
 
 ### This website sucks, I could do better!
 Please do, but please do it as part of this community effort. This effort has only just begun, and we need as little fragmentation in the community as possible if we are to get more people onboard the static site generator movement. Please provide your suggestions in the issue tracker, as well as submit your pull requests. We'd be hugely appreciative! Together, we can create something great.
