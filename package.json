@@ -67,7 +67,6 @@
     "staticsitegenerators": "^1.0.0"
   },
   "devDependencies": {
-    "docpad-plugin-ghpages": "~2.4.4",
     "docpad-plugin-livereload": "~2.7.1",
     "eslint": "^3.18.0",
     "projectz": "^1.3.2"
