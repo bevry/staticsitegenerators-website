@@ -72,12 +72,13 @@ after_success: |
 
 env:
   global:
-  # Custom Deploy
-  # travis encrypt "SURGE_LOGIN=$SURGE_LOGIN" --add env.global
-  # travis encrypt "SURGE_TOKEN=$SURGE_TOKEN" --add env.global
+  # https://github.com/balupton/awesome-travis#release-to-surge
   - DEPLOY_BRANCH='master'  # this is the branch that you want deployed
   - secure: ZTV3lFI2cxAIdajc6Flwe/ODLddRxsgRdqkc/wUQvl50IcDlktC94CXxu+NFIJEMMkqvn+fmP2XJS8hDv7JqsVSx9JtJgZVrshaUGBea5wkeNpg1wCcrXE6WZruC5Q/narXsOBHwoGm/vtcfGM/y6mMqis992ELJveJ5Brdek9I=
   - secure: PlkOdFbUXgsupbSvjFxZgRKoaxjfj6stOZQ7PNUd/Ja0MwF9nt+KVQxom9tY/q6VMPhlUsJZkHLPZw/cT2g3VTR3p4zy+cKXLgBMMG7aiEyGpMZaFZpbgcWQ3O8aJuVTlah+nAt6RwUoatabbKnn5CZ+QRSWOrFeM0PsvWv4/p0=
+  # github client details for rate limits
+  - secure: ELQxvgNp7d9KGZ/t3mo3bUWNuNqX2sWmwMcEfWhSIBt6XrThj8Bm/M1b/TaR+Y2bJRuWLdZqGUadiFvpSUERM6qCxn/wM9++DKMLy97bLBIurwDOo0f2jLteQ9isHS0Atu/smLsN9a4c+2H0vhAAV2lHHyLl7SLGqWDBc10qiPs=
+  - secure: WDCascsBTeMkS6vnB1kqQagLKn7qKCPq9ehJPh2jusmqndEUy0/smwkWR1Ixdv6HCvWusFpbHkiauz6MV8gojyi5HZTgAGDtJM5E9puNxW5zzwH/LIbHSS1zOB7roJggpiLlIWNcIPv+QnvIBH1q3qmsi22QnUZFVYbbW8Q8PZU=
 
 # https://github.com/balupton/awesome-travis#slack
 # https://github.com/balupton/awesome-travis#email
