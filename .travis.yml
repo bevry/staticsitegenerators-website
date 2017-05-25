@@ -9,8 +9,6 @@ cache:
   directories:
     - $HOME/.npm  # npm's cache
     - $HOME/.yarn-cache  # yarn's cache
-install:
-  - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-install.bash)"
 before_script:
   - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-verify.bash)"
 after_success:
