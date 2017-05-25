@@ -1,87 +1,20 @@
-# 2015 August 25
+# 2017 May 25
 # https://docpad.org/docs/deploy
-
+# https://github.com/balupton/awesome-travis
 sudo: false
 language: node_js
 node_js:
-  - "6"     # lts
+  - "7"     # stable
 cache:
   directories:
-    - $HOME/.npm  # http://stackoverflow.com/q/42521884/130638
-
-install: |
-  # Ensure NPM is latest
-  # https://github.com/balupton/awesome-travis#ensure-npm-is-latest
-  export CURRENT_NPM_VERSION="$(npm --version)" || exit -1
-  export LATEST_NPM_VERSION="$(npm view npm version)" || exit -1
-  if test "$CURRENT_NPM_VERSION" != "$LATEST_NPM_VERSION"; then
-    echo "running an old npm version $CURRENT_NPM_VERSION, upgrading npm to $LATEST_NPM_VERSION..."
-    npm install npm --global --cache-min=Infinity || exit -1
-    echo "...npm upgrade complete"
-  fi
-
-install: |
-  # Ensure dependencies install with a LTS node version
-  # https://github.com/balupton/awesome-travis#use-lts-node-version-for-preparation
-  export CURRENT_NODE_VERSION="$(node --version)" || exit -1
-  export LTS_NODE_VERSIONS="$(nvm ls-remote --lts)" || exit -1
-  if echo "$LTS_NODE_VERSIONS" | grep "$CURRENT_NODE_VERSION"; then
-    echo "running on a LTS node version, completing setup..."
-    npm run our:setup || exit -1
-    echo "...setup complete with current LTS version"
-  else
-    echo "running on a non-LTS node version, completing setup on a LTS node version..."
-    nvm install --lts
-    export LTS_NODE_INSTALLED_VERSION="$(node --version)" || exit -1
-    npm run our:setup || exit -1
-    nvm use "$TRAVIS_NODE_VERSION" || exit -1
-    echo "...setup complete with LTS"
-  fi
-
-before_script: |
-  # Ensure compilation and linting occur on a LTS node version
-  # https://github.com/balupton/awesome-travis#use-lts-node-version-for-preparation
-  if test "$LTS_NODE_INSTALLED_VERSION"; then
-    echo "running on a non-LTS node version, compiling with LTS, skipping linting..."
-    nvm use "$LTS_NODE_INSTALLED_VERSION" || exit -1
-    npm run our:compile || exit -1
-    nvm use "$TRAVIS_NODE_VERSION" || exit -1
-    echo "...compiled"
-  else
-    echo "running on a LTS node version, compiling and linting..."
-    npm run our:compile && npm run our:verify || exit -1
-    echo "...compiled and linted"
-  fi
-
-after_success: |
-  # Custom Deployment
-  # https://github.com/balupton/awesome-travis#npm-script-deployment
-  if ([ "$TRAVIS_BRANCH" == "$DEPLOY_BRANCH" ] &&
-      [ -z "$TRAVIS_TAG" ] &&
-      [ "$TRAVIS_PULL_REQUEST" == "false" ]); then
-    echo "deploying..."
-    npm run deploy || exit -1
-    echo "...deployed"
-  else
-    echo "skipped deploy"
-  fi
-
-
-# ========================================
-# Custom Configuration
-
-env:
-  global:
-  # https://github.com/balupton/awesome-travis#release-to-surge
-  - DEPLOY_BRANCH='master'  # this is the branch that you want deployed
-  - secure: ZTV3lFI2cxAIdajc6Flwe/ODLddRxsgRdqkc/wUQvl50IcDlktC94CXxu+NFIJEMMkqvn+fmP2XJS8hDv7JqsVSx9JtJgZVrshaUGBea5wkeNpg1wCcrXE6WZruC5Q/narXsOBHwoGm/vtcfGM/y6mMqis992ELJveJ5Brdek9I=
-  - secure: PlkOdFbUXgsupbSvjFxZgRKoaxjfj6stOZQ7PNUd/Ja0MwF9nt+KVQxom9tY/q6VMPhlUsJZkHLPZw/cT2g3VTR3p4zy+cKXLgBMMG7aiEyGpMZaFZpbgcWQ3O8aJuVTlah+nAt6RwUoatabbKnn5CZ+QRSWOrFeM0PsvWv4/p0=
-  # github client details for rate limits
-  - secure: ELQxvgNp7d9KGZ/t3mo3bUWNuNqX2sWmwMcEfWhSIBt6XrThj8Bm/M1b/TaR+Y2bJRuWLdZqGUadiFvpSUERM6qCxn/wM9++DKMLy97bLBIurwDOo0f2jLteQ9isHS0Atu/smLsN9a4c+2H0vhAAV2lHHyLl7SLGqWDBc10qiPs=
-  - secure: WDCascsBTeMkS6vnB1kqQagLKn7qKCPq9ehJPh2jusmqndEUy0/smwkWR1Ixdv6HCvWusFpbHkiauz6MV8gojyi5HZTgAGDtJM5E9puNxW5zzwH/LIbHSS1zOB7roJggpiLlIWNcIPv+QnvIBH1q3qmsi22QnUZFVYbbW8Q8PZU=
-
-# https://github.com/balupton/awesome-travis#slack
-# https://github.com/balupton/awesome-travis#email
+    - $HOME/.npm  # npm's cache
+    - $HOME/.yarn-cache  # yarn's cache
+install:
+  - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-install.bash)"
+before_script:
+  - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-verify.bash)"
+after_success:
+  - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/deploy-custom.bash)"
 notifications:
   email:
     recipients:
