@@ -58,16 +58,16 @@
     "node": "8"
   },
   "dependencies": {
-    "core-js": "^2.4.1",
-    "docpad": "^6.79.0",
-    "docpad-plugin-cleanurls": "^2.8.1",
-    "docpad-plugin-coffeescript": "^2.5.0",
-    "docpad-plugin-eco": "^2.1.0",
-    "docpad-plugin-raw": "^2.4.1",
-    "docpad-plugin-services": "^2.6.0",
-    "docpad-plugin-stylus": "^2.11.0",
-    "moment": "^2.17.1",
-    "staticsitegenerators": "^1.0.0"
+    "core-js": "^2.5.3",
+    "docpad": "^6.79.4",
+    "docpad-plugin-cleanurls": "^2.10.0",
+    "docpad-plugin-coffeescript": "^2.6.0",
+    "docpad-plugin-eco": "^2.2.1",
+    "docpad-plugin-raw": "^2.5.1",
+    "docpad-plugin-services": "^2.7.0",
+    "docpad-plugin-stylus": "^2.13.0",
+    "moment": "^2.20.1",
+    "staticsitegenerators": "^1.1.0"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "~2.9.0",
