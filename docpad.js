@@ -1,7 +1,6 @@
 'use strict'
 
 // Prepare
-require('core-js')
 const ssgs = require('staticsitegenerators')
 const moment = require('moment')
 const websiteVersion = require('./package.json').version
@@ -24,7 +23,7 @@ module.exports = {
 		// Specify some site properties
 		site: {
 			// The production url of our website
-			url: 'http://staticsitegenerators.net',
+			url: 'https://staticsitegenerators.net',
 
 			// The default title of our website
 			title: 'Static Site Generators',
@@ -61,7 +60,7 @@ module.exports = {
 		// we can apply that formatting here
 		getPreparedTitle () {
 			// if we have a document title, then we should use that and suffix the site's title onto it
-			if ( this.document.title ) {
+			if (this.document.title) {
 				return `${this.document.title} | ${this.site.title}`
 			}
 			// if our document does not have it's own title, then we should just use the site's title
@@ -89,7 +88,7 @@ module.exports = {
 	// Define a custom collection for cleanurls that ignores the documents we don't want
 	collections: {
 		cleanurls () {
-			return this.getCollection('html').findAllLive({cleanurls: true})
+			return this.getCollection('html').findAllLive({ cleanurls: true })
 		}
 	},
 
@@ -114,14 +113,14 @@ module.exports = {
 	events: {
 		// Generate Before
 		generateBefore (opts, next) {
-			if ( listing ) {
+			if (listing) {
 				opts.templateData.listing = listing
 				return next()
 			}
 			ssgs.remote(opts, function (err, data) {
-				if ( err )  return next(err)
+				if (err) return next(err)
 				ssgs.render(data, opts, function (err, result) {
-					if ( err )  return next(err)
+					if (err) return next(err)
 					listing = opts.templateData.listing = result
 					return next()
 				})

@@ -1,7 +1,6 @@
-// 2017 February 22
+// 2018 January 26
 // https://github.com/bevry/base
 // http://eslint.org
-// This code must be able to run on Node 0.10
 /* eslint no-warning-comments: 0 */
 'use strict'
 
@@ -10,7 +9,7 @@ const IGNORE = 0, WARN = 1, ERROR = 2, MAX_PARAMS = 4
 const config = {
 	extends: ['eslint:recommended'],
 	plugins: [],
-	parserOptions: {ecmaFeatures: {}},
+	parserOptions: { ecmaFeatures: {} },
 	env: {},
 	rules: {
 		// ----------------------------
@@ -559,7 +558,7 @@ const config = {
 		'max-params': [WARN, MAX_PARAMS],
 
 		// Let's give this a go and see what is appropriate for our usage
-		'max-statements-per-line': [WARN, {max: 1}],
+		'max-statements-per-line': [WARN, { max: 1 }],
 
 		// We should be able to use whatever feels right
 		'max-statements': IGNORE,
@@ -641,7 +640,7 @@ const config = {
 
 		// Object indentation should be consistent within the object
 		// Ignore until https://github.com/eslint/eslint/issues/7434 is done
-		'object-curly-newline': [IGNORE, {multiline: true}],
+		'object-curly-newline': [IGNORE, { multiline: true }],
 
 		// Desirable, but too many edge cases it turns out where it is actually preferred
 		'object-curly-spacing': IGNORE,
@@ -815,7 +814,6 @@ const config = {
 		// Plugins
 
 		// Not sure why, but okay
-		'babel/no-await-in-loop': WARN,
 		'flow-vars/define-flow-type': WARN,
 		'flow-vars/use-flow-type': WARN
 	}
@@ -831,27 +829,28 @@ try {
 	data = require('./package.json') || {}
 	devDeps = Object.keys(data.devDependencies || {})
 }
-catch ( err ) {}
+catch (err) { }
 
 // Set the parser options depending on our editions
-if ( data.editions ) {
+if (data.editions) {
 	const sourceEdition = data.editions[0]
-	for ( let syntaxIndex = 0; syntaxIndex < sourceEdition.syntaxes.length; ++syntaxIndex ) {
+	for (let syntaxIndex = 0; syntaxIndex < sourceEdition.syntaxes.length; ++syntaxIndex) {
 		const syntax = sourceEdition.syntaxes[syntaxIndex]
-		if ( syntax === 'esnext' ) {
+		if (syntax === 'esnext') {
 			config.parserOptions.ecmaVersion = 8
 			break
 		}
-		else if ( syntax.indexOf('es') === 0 ) {
+		else if (syntax.indexOf('es') === 0) {
 			config.parserOptions.ecmaVersion = Number(syntax.substr(2))
 			break
 		}
 	}
-	config.parserOptions.ecmaFeatures.sourceType = sourceEdition.syntaxes.indexOf('import') !== -1 ? 'module' : 'script'
+	config.parserOptions.sourceType = sourceEdition.syntaxes.indexOf('import') !== -1 ? 'module' : 'script'
 	config.parserOptions.ecmaFeatures.jsx = sourceEdition.syntaxes.indexOf('jsx') !== -1
 }
-else {
-	// node version
+
+// If editions failed to dtermine the ecmaVersion, try determining it from node, otherwise default to v5
+if (!config.parserOptions.ecmaVersion) {
 	const node = data.engines && data.engines.node && data.engines.node.replace('>=', '').replace(/ /g, '').replace(/\..+$/, '')
 	config.parserOptions.ecmaVersion = node >= 6 ? 6 : 5
 }
@@ -860,43 +859,42 @@ else {
 config.env.es6 = Boolean(config.parserOptions.ecmaVersion && config.parserOptions.ecmaVersion >= 6)
 config.env.node = Boolean(data.engines && data.engines.node)
 config.env.browser = Boolean(data.browser)
-if ( config.env.browser ) {
+if (config.env.browser) {
 	config.env.commonjs = true
-	if ( config.env.node ) {
+	if (config.env.node) {
 		config.env['shared-node-browser'] = true
 	}
 }
 
 // If not on legacy javascript, disable esnext rules
-if ( config.parserOptions.ecmaVersion && config.parserOptions.ecmaVersion <= 5 ) {
+if (config.parserOptions.ecmaVersion && config.parserOptions.ecmaVersion <= 5) {
 	config.rules['no-var'] = IGNORE
 	config.rules['object-shorthand'] = [ERROR, 'never']
+	config.rules['prefer-rest-params'] = IGNORE
+	config.rules['prefer-spread'] = IGNORE
+	config.rules['prefer-const'] = IGNORE
 }
 
 // Add babel parsing if installed
-if ( devDeps.indexOf('babel-eslint') !== -1 ) {
+if (devDeps.indexOf('babel-eslint') !== -1) {
 	config.parser = 'babel-eslint'
 }
 
 // Add react linting if installed
-if ( devDeps.indexOf('eslint-plugin-react') !== -1 ) {
+if (devDeps.indexOf('eslint-plugin-react') !== -1) {
 	config.extends.push('plugin:react/recommended')
 	config.plugins.push('react')
 }
 
-if ( devDeps.indexOf('eslint-plugin-babel') !== -1 ) {
+if (devDeps.indexOf('eslint-plugin-babel') !== -1) {
 	// Remove rules that babel rules replace
 	config.plugins.push('babel')
 	const replacements = [
-		'array-bracket-spacing',
 		'new-cap',
-		'object-curly-spacing',
-		'arrow-parens',
-		'generator-star-spacing',
-		'object-shorthand'
+		'object-curly-spacing'
 	]
 	replacements.forEach(function (key) {
-		if ( rules.indexOf(key) !== -1 ) {
+		if (rules.indexOf(key) !== -1) {
 			config.rules['babel/' + key] = config.rules[key]
 			config.rules[key] = IGNORE
 		}
@@ -905,20 +903,20 @@ if ( devDeps.indexOf('eslint-plugin-babel') !== -1 ) {
 else {
 	// Remove babel rules if not using babel
 	rules.forEach(function (key) {
-		if ( key.indexOf('babel/') === 0 ) {
+		if (key.indexOf('babel/') === 0) {
 			delete config.rules[key]
 		}
 	})
 }
 
-if ( devDeps.indexOf('eslint-plugin-flow-vars') !== -1 ) {
+if (devDeps.indexOf('eslint-plugin-flow-vars') !== -1) {
 	// Add flow plugin if installed
 	config.plugins.push('flow-vars')
 }
 else {
 	// Remove flow rules if plugin not installed
 	rules.forEach(function (key) {
-		if ( key.indexOf('flow-vars/') === 0 ) {
+		if (key.indexOf('flow-vars/') === 0) {
 			delete config.rules[key]
 		}
 	})

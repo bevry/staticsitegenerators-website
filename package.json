@@ -6,13 +6,17 @@
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
   "license": "(MIT AND CC-BY-4.0)",
+  "keywords": [
+    "static site generators",
+    "ssgs",
+    "website"
+  ],
   "badges": {
     "list": [
       "travisci",
       "---",
       "patreon",
       "opencollective",
-      "gratipay",
       "flattr",
       "paypal",
       "bitcoin",
@@ -23,7 +27,6 @@
     "config": {
       "patreonUsername": "bevry",
       "opencollectiveUsername": "bevry",
-      "gratipayUsername": "bevry",
       "flattrUsername": "balupton",
       "paypalURL": "https://bevry.me/paypal",
       "bitcoinURL": "https://bevry.me/bitcoin",
@@ -41,18 +44,18 @@
     "Dirk Ginader (http://ginader.com)",
     "Misha Koryak <mkoryak@gmail.com> (http://programmingdrunk.com)",
     "Matteo Bertini <matteo@naufraghi.net> (http://www.slug.it/naufraghi/)",
-    "Michael Westbom <mike@totallymike.org> (https://github.com/totallymike)"
+    "Michael Westbom <mike@totallymike.org> (https://github.com/totallymike)",
+    "Misha Koryak (http://dogself.com)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators-website/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/bevry/staticsitegenerators-website.git"
+    "url": "https://github.com/bevry/staticsitegenerators-website.git"
   },
   "engines": {
-    "node": "6",
-    "npm": "3"
+    "node": "8"
   },
   "dependencies": {
     "core-js": "^2.4.1",
@@ -67,25 +70,27 @@
     "staticsitegenerators": "^1.0.0"
   },
   "devDependencies": {
-    "docpad-plugin-livereload": "~2.7.1",
-    "eslint": "^3.18.0",
-    "projectz": "^1.3.2",
+    "docpad-plugin-livereload": "~2.9.0",
+    "eslint": "^4.17.0",
+    "projectz": "^1.4.0",
     "surge": "^0.19.0"
   },
-  "main": "node_modules/.bin/docpad-server",
   "scripts": {
-    "our:setup": "npm install",
-    "our:clean": "rm -Rf ./docs ./es2015 ./out",
-    "our:compile": "echo 'no need for a compile'",
+    "our:setup": "npm run our:setup:npm",
+    "our:setup:npm": "npm install",
+    "our:clean": "rm -Rf ./docs ./es2015 ./es5 ./out",
+    "our:compile": "echo no need for this project",
     "our:meta": "npm run our:meta:projectz",
     "our:meta:projectz": "projectz compile",
-    "our:verify": "npm run our:verify:eslint",
-    "our:verify:eslint": "eslint --fix ./ --ignore-path .gitignore",
+    "our:verify": "echo no need for this project",
+    "our:deploy": "npm run my:deploy",
     "our:test": "npm run our:verify && npm test",
-    "our:release": "npm run deploy",
+    "our:release": "npm run our:release:prepare && npm run our:release:push",
+    "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
+    "our:release:push": "git push origin master && git push origin --tags",
+    "my:verify:eslint": "eslint --fix ./ --ignore-path .gitignore",
+    "my:deploy": "surge --project ./out --domain https://staticsitegenerators.net",
     "start": "docpad-server",
-    "test": "docpad generate --silent --env static",
-    "info": "docpad info --silent",
-    "deploy": "surge --project ./out --domain https://staticsitegenerators.net"
+    "test": "docpad generate --silent --env static"
   }
 }

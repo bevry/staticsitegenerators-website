@@ -1,21 +1,23 @@
-# 2017 May 26
-# https://docpad.org/docs/deploy
-# https://github.com/balupton/awesome-travis
 sudo: false
 language: node_js
 node_js:
-  - "7"     # stable
+- '8'
+matrix:
+  fast_finish: true
+  allow_failures: []
 cache:
   directories:
-    - $HOME/.npm  # npm's cache
-    - $HOME/.yarn-cache  # yarn's cache
+  - "$HOME/.npm"
+  - "$HOME/.yarn-cache"
+install:
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/node-install.bash)"
 before_script:
-  - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/node-verify.bash)"
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/node-verify.bash)"
 after_success:
-  - eval "$(curl -s https://raw.githubusercontent.com/balupton/awesome-travis/master/scripts/deploy-custom.bash)"
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1ec050bc004d0e2161cb5286c247850d24aecc02/scripts/deploy-custom.bash)"
 notifications:
+  slack:
+    secure: IYn5TNEI0/bNQ5GLRZD7uchb9vhC4tku4sFXLL2dAygAIHVAbcvDE2zl5BPpViLjqmq7/X7UxImmZoEdMfJohOY7e0u7l6fdIVW1y2KPEbmsWFgbqtUS/eNRwHxwtPkwBtOESo736jS8SBBFEZ3g+U2zuOq/9oqqkrlpzPQKRrQ=
   email:
     recipients:
-      secure: Z4KR9AamZhchSbm31DBGRhy2zTnhD7ULxCqgCYSHXlCNzf86HfWSelJsuaUKW/XaQZyn8xwRX9Dc+5FAc0F6eQgdEL01XRC6PAlZ9cUVPJ/YixxNWXArdyOjug53+3a+f/H6qRfuySaPnSkZ0KgCgb01A3mElTl0/0shuFPvXzI=
-  slack:
-    secure: FT6SHO7c/O9gbaiMLRPDEncNTi41BAw3WFcbipCwBHB/Y1sehh8WTth9nqWhiEIED6ekZDN9fZy7SNSwRsg/KJxdf0ma4Zc/2zVvXIUdpxGxibfDEULiSFBCHL1FBpNFcP+lukUs+0Pb0p1HegzRfrbu1mioXfrXvzTpprn4lQw=
+      secure: DDsz2/jRkHLgfGJ61tvJKToA3MI4VYxobz5L8HtCCcjy1ad+7+tzQcjTpbQCHCCgM64bB4CCWh/Ya1Z813L8IJrsOjPJ+74bWxy5acWW08oSSAOdy0Z7X/aXWtr2vlkgjhAtOK8hBZrvz3Nz28sOrmlQmQT8HoPCb4XgxK5Fy00=
