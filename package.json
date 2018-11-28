@@ -103,21 +103,5 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
-  },
-  "now": {
-    "version": 1,
-    "name": "staticsitegenerators-website",
-    "type": "static",
-    "public": true,
-    "alias": "staticsitegenerators.net",
-    "files": [
-      "out"
-    ],
-    "static": {
-      "directoryListing": false,
-      "cleanUrls": true,
-      "trailingSlash": false,
-      "public": "out"
-    }
   }
 }
