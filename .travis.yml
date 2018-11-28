@@ -1,20 +1,20 @@
 sudo: false
 language: node_js
 node_js:
-- '10'
+  - '10'
 matrix:
   fast_finish: true
   allow_failures: []
 cache:
   directories:
-  - "$HOME/.npm"
-  - "$HOME/.yarn-cache"
+    - '$HOME/.npm'
+    - '$HOME/.yarn-cache'
 install:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/node-install.bash)"
+  - eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/node-install.bash)"
 before_script:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/node-verify.bash)"
+  - eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/node-verify.bash)"
 after_success:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/deploy-now.bash.bash)"
+  - eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/deploy-now.bash)"
 notifications:
   email:
     recipients:
