@@ -37,12 +37,12 @@ module.exports = {
 
 			// The website's styles
 			styles: ['/vendor/normalize.css', '/styles/style.css'].map(
-				(url) => `${url}?websiteVersion=${websiteVersion}`
+				url => `${url}?websiteVersion=${websiteVersion}`
 			),
 
 			// The website's scripts
-			scripts: ['/vendor/sorttable.js', '/scripts/script.js'].map(
-				(url) => `${url}?websiteVersion=${websiteVersion}`
+			scripts: ['/vendor/sorttable.js'].map(
+				url => `${url}?websiteVersion=${websiteVersion}`
 			),
 
 			services: {
@@ -56,7 +56,7 @@ module.exports = {
 		// Get the prepared site/document title
 		// Often we would like to specify particular formatting to our page's title
 		// we can apply that formatting here
-		getPreparedTitle () {
+		getPreparedTitle() {
 			// if we have a document title, then we should use that and suffix the site's title onto it
 			if (this.document.title) {
 				return `${this.document.title} | ${this.site.title}`
@@ -68,13 +68,13 @@ module.exports = {
 		},
 
 		// Get the prepared site/document description
-		getPreparedDescription () {
+		getPreparedDescription() {
 			// if we have a document description, then we should use that, otherwise use the site's description
 			return this.document.description || this.site.description
 		},
 
 		// Get the prepared site/document keywords
-		getPreparedKeywords () {
+		getPreparedKeywords() {
 			// Merge the document keywords with the site keywords
 			return this.site.keywords.concat(this.document.keywords || []).join(', ')
 		}

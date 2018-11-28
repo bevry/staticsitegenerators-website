@@ -17,8 +17,6 @@ layout: default
 		<h2>
 			<%= @site.description %> &mdash; all <%= @listing.length %> of them!
 		</h2>
-
-		<iframe id="service-buttons-container"></iframe>
 	<% end %>
 </header>
 

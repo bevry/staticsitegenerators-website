@@ -64,7 +64,6 @@
     "docpad-plugin-cleanurls": "^2.11.0",
     "docpad-plugin-eco": "^2.3.0",
     "docpad-plugin-raw": "^2.6.0",
-    "docpad-plugin-services": "^2.8.0",
     "docpad-plugin-stylus": "^2.14.0",
     "moment": "^2.22.2",
     "staticsitegenerators": "^2.0.0"
@@ -72,6 +71,7 @@
   "devDependencies": {
     "docpad": "^6.82.5",
     "docpad-plugin-livereload": "~2.10.0",
+    "docpad-plugin-serve": "^2.0.1",
     "now": "^12.1.6",
     "projectz": "^1.5.3",
     "stylelint": "^9.9.0",
