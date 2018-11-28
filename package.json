@@ -61,7 +61,6 @@
   },
   "dependencies": {
     "core-js": "^2.5.7",
-    "docpad-plugin-cleanurls": "^2.11.0",
     "docpad-plugin-eco": "^2.3.0",
     "docpad-plugin-raw": "^2.6.0",
     "docpad-plugin-stylus": "^2.14.0",
