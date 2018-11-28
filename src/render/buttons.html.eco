@@ -1,5 +1,0 @@
----
-layout: default
----
-
-<%- (@document.url = '/') and @getServiceButtons() %>

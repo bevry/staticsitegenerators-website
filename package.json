@@ -2,7 +2,6 @@
   "title": "Static Site Generators Website",
   "name": "staticsitegenerators-website",
   "version": "0.2.0",
-  "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
   "license": "(MIT AND CC-BY-4.0)",
@@ -16,22 +15,25 @@
       "travisci",
       "---",
       "patreon",
-      "opencollective",
       "flattr",
+      "liberapay",
+      "thanksapp",
+      "boostlab",
+      "buymeacoffee",
+      "opencollective",
+      "crypto",
       "paypal",
-      "bitcoin",
-      "wishlist",
-      "---",
-      "slackin"
+      "wishlist"
     ],
     "config": {
-      "patreonUsername": "bevry",
-      "opencollectiveUsername": "bevry",
+      "buymeacoffeeUsername": "balupton",
+      "cryptoURL": "https://bevry.me/crypto",
       "flattrUsername": "balupton",
+      "liberapayUsername": "bevry",
+      "opencollectiveUsername": "bevry",
+      "patreonUsername": "bevry",
       "paypalURL": "https://bevry.me/paypal",
-      "bitcoinURL": "https://bevry.me/bitcoin",
-      "wishlistURL": "https://bevry.me/wishlist",
-      "slackinURL": "https://slack.bevry.me"
+      "wishlistURL": "https://bevry.me/wishlist"
     }
   },
   "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
@@ -55,11 +57,10 @@
     "url": "https://github.com/bevry/staticsitegenerators-website.git"
   },
   "engines": {
-    "node": "8"
+    "node": "10"
   },
   "dependencies": {
     "core-js": "^2.5.7",
-    "docpad": "^6.82.5",
     "docpad-plugin-cleanurls": "^2.11.0",
     "docpad-plugin-eco": "^2.3.0",
     "docpad-plugin-raw": "^2.6.0",
@@ -69,27 +70,54 @@
     "staticsitegenerators": "^2.0.0"
   },
   "devDependencies": {
+    "docpad": "^6.82.5",
     "docpad-plugin-livereload": "~2.10.0",
-    "eslint": "^5.9.0",
+    "now": "^12.1.6",
     "projectz": "^1.5.3",
-    "surge": "^0.20.1"
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0"
   },
   "scripts": {
-    "our:setup": "npm run our:setup:npm",
-    "our:setup:npm": "npm install",
-    "our:clean": "rm -Rf ./docs ./es2015 ./es5 ./out",
+    "my:deploy": "surge --project ./out --domain https://staticsitegenerators.net",
+    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out",
     "our:compile": "echo no need for this project",
+    "our:deploy": "npm run my:deploy",
     "our:meta": "npm run our:meta:projectz",
     "our:meta:projectz": "projectz compile",
-    "our:verify": "echo no need for this project",
-    "our:deploy": "npm run my:deploy",
-    "our:test": "npm run our:verify && npm test",
-    "our:release": "npm run our:release:prepare && npm run our:release:push",
+    "our:release": "npm run our:release:push",
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
     "our:release:push": "git push origin master && git push origin --tags",
-    "my:verify:eslint": "eslint --fix ./ --ignore-path .gitignore",
-    "my:deploy": "surge --project ./out --domain https://staticsitegenerators.net",
+    "our:setup": "npm run our:setup:npm",
+    "our:setup:npm": "npm install",
+    "our:test": "npm run our:verify && npm test",
+    "our:verify": "npm run our:verify:stylelint",
+    "our:verify:stylelint": "stylelint --fix './src/**/*.css'",
     "start": "docpad-server",
-    "test": "docpad generate --silent --env static"
+    "test": "docpad generate --env static"
+  },
+  "eslintConfig": {
+    "extends": [
+      "bevry"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "now": {
+    "version": 1,
+    "name": "staticsitegenerators-website",
+    "type": "static",
+    "public": true,
+    "alias": "staticsitegenerators.net",
+    "files": [
+      "out"
+    ],
+    "static": {
+      "directoryListing": false,
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "public": "out"
+    }
   }
 }

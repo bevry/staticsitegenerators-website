@@ -1,6 +1,5 @@
 ---
 layout: 'page'
-cleanurls: true
 ---
 
 <table class="sortable projects">
