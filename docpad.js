@@ -1,24 +1,24 @@
 'use strict'
 
 // Prepare
-const ssgs = require('staticsitegenerators')
+const listing = require('staticsitegenerators')
 const moment = require('moment')
 const websiteVersion = require('./package.json').version
-let listing = null
 
 // The DocPad Configuration File
 // It is simply a CoffeeScript Object which is parsed by CSON
 module.exports = {
-
 	// =================================
 	// Template Data
 	// These are variables that will be accessible via our templates
 	// To access one of these within our templates, refer to the FAQ: https://github.com/bevry/docpad/wiki/FAQ
 
 	templateData: {
-
 		// Moment
 		moment,
+
+		// Add the listing
+		listing: listing.hydrated,
 
 		// Specify some site properties
 		site: {
@@ -32,25 +32,23 @@ module.exports = {
 			description: 'The definitive listing of Static Site Generators',
 
 			// The website keywords (for SEO) separated by commas
-			keywords: 'static site generator, static site, static, site, web site, web app, app, application, web application, seo, search engine optimisation, fast, flat file, cms, content management system, nosql, node.js, ruby, javascript, python',
+			keywords:
+				'static site generator, static site, static, site, web site, web app, app, application, web application, seo, search engine optimisation, fast, flat file, cms, content management system, nosql, node.js, ruby, javascript, python',
 
 			// The website's styles
-			styles: [
-				'/vendor/normalize.css',
-				'/styles/style.css'
-			].map((url) => `${url}?websiteVersion=${websiteVersion}`),
+			styles: ['/vendor/normalize.css', '/styles/style.css'].map(
+				(url) => `${url}?websiteVersion=${websiteVersion}`
+			),
 
 			// The website's scripts
-			scripts: [
-				'/vendor/sorttable.js',
-				'/scripts/script.js'
-			].map((url) => `${url}?websiteVersion=${websiteVersion}`),
+			scripts: ['/vendor/sorttable.js', '/scripts/script.js'].map(
+				(url) => `${url}?websiteVersion=${websiteVersion}`
+			),
 
 			services: {
-				githubStarButton: 'bevry/staticsitegenerators'
+				githubStarButton: 'bevry/staticsitegenerators-list'
 			}
 		},
-
 
 		// -----------------------------
 		// Helper Functions
@@ -79,52 +77,6 @@ module.exports = {
 		getPreparedKeywords () {
 			// Merge the document keywords with the site keywords
 			return this.site.keywords.concat(this.document.keywords || []).join(', ')
-		}
-	},
-
-	// =================================
-	// Plugins
-
-	// Define a custom collection for cleanurls that ignores the documents we don't want
-	collections: {
-		cleanurls () {
-			return this.getCollection('html').findAllLive({ cleanurls: true })
-		}
-	},
-
-	// =================================
-	// Plugins
-
-	plugins: {
-		cleanurls: {
-			collectionName: 'cleanurls',
-			advancedRedirects: [
-				// Old URLs
-				[/^https?:\/\/(?:www\.staticsitegenerators\.net|staticsitegenerators\.herokuapp\.com|bevry\.github\.io\/staticsitegenerators)(.*)$/, 'https://staticsitegenerators.net$1']
-			]
-		}
-	},
-
-	// =================================
-	// DocPad Events
-
-	// Here we can define handlers for events that DocPad fires
-	// You can find a full listing of events on the DocPad Wiki
-	events: {
-		// Generate Before
-		generateBefore (opts, next) {
-			if (listing) {
-				opts.templateData.listing = listing
-				return next()
-			}
-			ssgs.remote(opts, function (err, data) {
-				if (err) return next(err)
-				ssgs.render(data, opts, function (err, result) {
-					if (err) return next(err)
-					listing = opts.templateData.listing = result
-					return next()
-				})
-			})
 		}
 	}
 }

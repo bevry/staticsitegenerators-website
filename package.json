@@ -1,7 +1,7 @@
 {
   "title": "Static Site Generators Website",
   "name": "staticsitegenerators-website",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "private": true,
   "description": "The definitive listing of Static Site Generators",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
@@ -58,21 +58,20 @@
     "node": "8"
   },
   "dependencies": {
-    "core-js": "^2.5.3",
-    "docpad": "^6.79.4",
-    "docpad-plugin-cleanurls": "^2.10.0",
-    "docpad-plugin-coffeescript": "^2.6.0",
-    "docpad-plugin-eco": "^2.2.1",
-    "docpad-plugin-raw": "^2.5.1",
-    "docpad-plugin-services": "^2.7.0",
-    "docpad-plugin-stylus": "^2.13.0",
-    "moment": "^2.20.1",
-    "staticsitegenerators": "^1.1.0"
+    "core-js": "^2.5.7",
+    "docpad": "^6.82.5",
+    "docpad-plugin-cleanurls": "^2.11.0",
+    "docpad-plugin-eco": "^2.3.0",
+    "docpad-plugin-raw": "^2.6.0",
+    "docpad-plugin-services": "^2.8.0",
+    "docpad-plugin-stylus": "^2.14.0",
+    "moment": "^2.22.2",
+    "staticsitegenerators": "^2.0.0"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "~2.10.0",
-    "eslint": "^5.3.0",
-    "projectz": "^1.4.0",
+    "eslint": "^5.9.0",
+    "projectz": "^1.5.3",
     "surge": "^0.20.1"
   },
   "scripts": {
