@@ -22,7 +22,6 @@ yarn.lock
 
 # Build Caches
 build/
-components/
 bower_components/
 node_modules/
 .next/
