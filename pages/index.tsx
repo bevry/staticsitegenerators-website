@@ -98,7 +98,6 @@ const Index = ({ listing }: { listing: List }) => {
 		<div>
 			<Head>
 				<title>Static Site Generators</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 				<meta
 					name="keywords"
 					content="static site generator, static site, static, site, web site, web app, app, application, web application, seo, search engine optimisation, fast, flat file, cms, content management system, nosql, node.js, ruby, javascript, python"
