@@ -64,7 +64,7 @@ tr:hover {
 	font-weight: bold;
 	display: block;
 }
-.name span {
+tr:not(:hover) .name span {
 	color: #777;
 }
 .stars {
