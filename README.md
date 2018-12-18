@@ -4,7 +4,6 @@
 
 <!-- /TITLE -->
 
-
 <!-- BADGES/ -->
 
 <span class="badge-travisci"><a href="http://travis-ci.org/bevry/staticsitegenerators-website" title="Check this project's build status on TravisCI"><img src="https://img.shields.io/travis/bevry/staticsitegenerators-website/master.svg" alt="Travis CI Build Status" /></a></span>
@@ -22,56 +21,25 @@
 
 <!-- /BADGES -->
 
-
 <!-- DESCRIPTION/ -->
 
 The definitive listing of Static Site Generators
 
 <!-- /DESCRIPTION -->
 
+This project is a website rendering of the [Static Site Generators Listing](http://github.com/bevry/staticsitegenerators-list/issues).
 
-## How it works
+The website is created using the following:
 
-This is a [DocPad](http://docpad.org) website that automatically pulls in the latest listing data from [bevry/staticsitegenerators-list](https://github.com/bevry/staticsitegenerators-list) and renders it nicely.
+- [Zeit Now v2](https://zeit.co/docs/v2/)
+- [Zeit Next.js](https://nextjs.org/docs/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [TypeScript](http://npmjs.com/package/@zeit/next-typescript)
 
-In the future we'd like to add the following to the listing:
+The project is maintained using the following:
 
-- Project Maturity
-	- Contributors
-	- Commits
-
-As well as add a link to the [Go Static Campaign](https://github.com/bevry/gostatic) to help educate people about the benefits of Static Site Generators.
-
-
-## Getting Started
-
-1. [Install DocPad](http://docpad.org/install)
-
-1. Clone the project and run the server
-
-	``` bash
-	git clone git://github.com/bevry/staticsitegenerators-website.git
-	cd staticsitegenerators-website
-	npm install
-	docpad run
-	```
-
-1. [Open http://localhost:9778/](http://localhost:9778/)
-
-1. Start hacking away by modifying the `src` directory
-
-
-## FAQ
-
-### My favourite SSG is not listed!
-[Add it here.](https://github.com/bevry/staticsitegenerators-list)
-
-### This website sucks, I could do better!
-Please do, but please do it as part of this community effort. This effort has only just begun, and we need as little fragmentation in the community as possible if we are to get more people onboard the static site generator movement. Please provide your suggestions in the issue tracker, as well as submit your pull requests. We'd be hugely appreciative! Together, we can create something great.
-
-### Why did you create this?
-There are so many SSG listings across the web, but we needed to have one that automatically stayed up to date as changes happened. The DocPad dynamic infrastructure here will allow that to happen. We've also come to find the SSG movement is struggling to get enterprise clients onboard, because they are all trying to create their own fragmented listings pitching their own static site generators, which doesn't help anyone. We need one listing, and one effort, that the entire SSG community can get behind. As such, we will list all SSGs in the most humble of ways and not discriminate against any.
-
+- [Boundation](https://github.com/bevry/boundation)
+- [Projectz](https://github.com/bevry/projectz)
 
 <!-- LICENSE/ -->
 

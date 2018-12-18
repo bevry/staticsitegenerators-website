@@ -1,14 +1,16 @@
 {
-  "title": "Static Site Generators Website",
   "name": "staticsitegenerators-website",
-  "version": "0.2.0",
-  "description": "The definitive listing of Static Site Generators",
+  "version": "1.0.0",
+  "description": "Website rendering of staticsitegenerators-list",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
-  "license": "(MIT AND CC-BY-4.0)",
+  "license": "MIT",
   "keywords": [
     "static site generators",
     "ssgs",
-    "website"
+    "static sites",
+    "website",
+    "static",
+    "site"
   ],
   "badges": {
     "list": [
@@ -36,18 +38,9 @@
       "wishlistURL": "https://bevry.me/wishlist"
     }
   },
-  "author": "Bevry Pty Ltd <us@bevry.me> (http://bevry.me)",
+  "author": "Benjamin Lupton <b@lupton.cc> (https://balupton.com)",
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
-  ],
-  "contributors": [
-    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
-    "George Erickson (gee.io)",
-    "Dirk Ginader (http://ginader.com)",
-    "Misha Koryak <mkoryak@gmail.com> (http://programmingdrunk.com)",
-    "Matteo Bertini <matteo@naufraghi.net> (http://www.slug.it/naufraghi/)",
-    "Michael Westbom <mike@totallymike.org> (https://github.com/totallymike)",
-    "Misha Koryak (http://dogself.com)"
+    "Benjamin Lupton <b@lupton.cc> (https://balupton.com)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators-website/issues"
@@ -57,42 +50,7 @@
     "url": "https://github.com/bevry/staticsitegenerators-website.git"
   },
   "engines": {
-    "node": "10"
-  },
-  "dependencies": {
-    "core-js": "^2.5.7",
-    "docpad-plugin-eco": "^2.3.0",
-    "docpad-plugin-raw": "^2.6.0",
-    "docpad-plugin-stylus": "^2.14.0",
-    "moment": "^2.22.2",
-    "staticsitegenerators": "^2.0.0"
-  },
-  "devDependencies": {
-    "docpad": "^6.82.5",
-    "docpad-plugin-livereload": "~2.10.0",
-    "docpad-plugin-serve": "^2.0.1",
-    "now": "^12.1.6",
-    "projectz": "^1.5.3",
-    "stylelint": "^9.9.0",
-    "stylelint-config-standard": "^18.2.0"
-  },
-  "scripts": {
-    "my:deploy": "surge --project ./out --domain https://staticsitegenerators.net",
-    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out",
-    "our:compile": "echo no need for this project",
-    "our:deploy": "npm run my:deploy",
-    "our:meta": "npm run our:meta:projectz",
-    "our:meta:projectz": "projectz compile",
-    "our:release": "npm run our:release:push",
-    "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
-    "our:release:push": "git push origin master && git push origin --tags",
-    "our:setup": "npm run our:setup:npm",
-    "our:setup:npm": "npm install",
-    "our:test": "npm run our:verify && npm test",
-    "our:verify": "npm run our:verify:stylelint",
-    "our:verify:stylelint": "stylelint --fix './src/**/*.css'",
-    "start": "docpad-server",
-    "test": "docpad generate --env static"
+    "node": "8"
   },
   "eslintConfig": {
     "extends": [
@@ -102,5 +60,50 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "scripts": {
+    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out",
+    "our:compile": "echo no need for this project",
+    "our:deploy": "echo no need for this project",
+    "our:meta": "npm run our:meta:projectz",
+    "our:meta:projectz": "projectz compile",
+    "our:release": "npm run our:release:push",
+    "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
+    "our:release:push": "git push origin master && git push origin --tags",
+    "our:setup": "npm run our:setup:npm",
+    "our:setup:npm": "npm install",
+    "our:test": "npm run our:verify && npm test",
+    "our:verify": "npm run our:verify:eslint && npm run our:verify:stylelint && npm run our:verify:typescript",
+    "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/**' --ignore-pattern '**/node_modules/**' --ext .js,.jsx,.ts,.tsx ./",
+    "our:verify:stylelint": "stylelint --fix './static/**/*.css'",
+    "our:verify:typescript": "tsc --project .",
+    "test": "npm run build",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-bevry": "^1.0.2",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "now": "^12.1.12",
+    "prettier": "^1.15.3",
+    "projectz": "^1.5.3",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
+    "typescript": "^3.2.2",
+    "typescript-eslint-parser": "^21.0.2"
+  },
+  "dependencies": {
+    "@now/next": "0.0.81",
+    "@types/next": "^7.0.5",
+    "@zeit/next-typescript": "^1.1.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "moment": "^2.23.0",
+    "next": "^7.0.2",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
   }
 }

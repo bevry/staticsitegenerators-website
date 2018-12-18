@@ -1,0 +1,107 @@
+body {
+	font-family: -apple-system-body, sans-serif;
+}
+h1,
+h2,
+th {
+	font-family: -apple-system-headline, serif;
+}
+h1,
+h2 {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-size: 1.5em;
+}
+h2 {
+	font-size: 1em;
+}
+th {
+	font-size: 110%;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+footer {
+	margin: 2em;
+}
+footer a {
+	margin: 1em;
+}
+table {
+	cursor: default;
+	border-collapse: collapse;
+}
+thead {
+	background-color: #eee;
+	color: #666;
+	font-weight: bold;
+	cursor: pointer;
+}
+th {
+	color: #000;
+	padding: 0.4em 0.5em;
+	border: 1px solid #999;
+	border-right: 0;
+}
+td {
+	padding: 1em 0;
+	border-bottom: 1px solid #eee;
+}
+tr:hover {
+	background: #eee;
+}
+.name {
+	width: 100%;
+	text-align: left;
+	padding: 0.5em 0.5em;
+}
+.name label {
+	font-weight: bold;
+	display: block;
+}
+.name span {
+	color: #777;
+}
+.stars {
+	min-width: 4em;
+}
+td.stars {
+	text-align: right;
+	font-family: monospace;
+}
+.license,
+.language,
+.created_at,
+.updated_at {
+	text-align: center;
+}
+.license {
+	min-width: 7em;
+}
+.created_at,
+.updated_at {
+	min-width: 6em;
+}
+.icon {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	color: #111;
+	overflow: hidden;
+	vertical-align: top;
+	box-sizing: border-box;
+	fill: currentColor;
+	margin: 0 0.5em;
+	opacity: 0.2;
+}
+.icon.github {
+	background-image: url('./github.svg');
+}
+a:hover .icon {
+	opacity: 1;
+}

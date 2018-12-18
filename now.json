@@ -1,14 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "name": "staticsitegenerators-website",
-  "type": "static",
-  "public": true,
   "alias": "staticsitegenerators.net",
-  "files": ["out"],
-  "static": {
-    "directoryListing": false,
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "public": "out"
-  }
+  "routes": [
+    { "src": "/favicon.ico", "dest": "/static/favicon.ico" },
+    { "src": "/robots.txt", "dest": "/static/robots.txt" },
+    {
+      "src": "/list(.json)?",
+      "status": 301,
+      "headers": {
+        "Location": "https://unpkg.com/staticsitegenerators@2/out.json"
+      }
+    }
+  ],
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
 }

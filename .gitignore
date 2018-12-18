@@ -1,4 +1,4 @@
-# 2018 September 3
+# 2018 December 18
 # https://github.com/bevry/base
 
 # System Files
@@ -25,6 +25,7 @@ build/
 components/
 bower_components/
 node_modules/
+.next/
 
 # Build Outputs
 **/out.*
