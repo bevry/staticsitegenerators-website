@@ -1,8 +1,9 @@
 <!-- TITLE/ -->
 
-<h1>Static Site Generators Website</h1>
+<h1>staticsitegenerators-website</h1>
 
 <!-- /TITLE -->
+
 
 <!-- BADGES/ -->
 
@@ -21,11 +22,13 @@
 
 <!-- /BADGES -->
 
+
 <!-- DESCRIPTION/ -->
 
-The definitive listing of Static Site Generators
+Website rendering of staticsitegenerators-list
 
 <!-- /DESCRIPTION -->
+
 
 This project is a website rendering of the [Static Site Generators Listing](http://github.com/bevry/staticsitegenerators-list/issues).
 
@@ -47,12 +50,10 @@ The project is maintained using the following:
 
 Unless stated otherwise all works are:
 
-<ul><li>Copyright &copy; <a href="http://bevry.me">Bevry Pty Ltd</a></li></ul>
+<ul><li>Copyright &copy; <a href="http://balupton.com">Benjamin Lupton</a></li></ul>
 
 and licensed under:
 
-<ul><li><a href="http://spdx.org/licenses/MIT.html">MIT License</a></li>
-<li>and</li>
-<li><a href="http://spdx.org/licenses/CC-BY-4.0.html">Creative Commons Attribution 4.0 International</a></li></ul>
+<ul><li><a href="http://spdx.org/licenses/MIT.html">MIT License</a></li></ul>
 
 <!-- /LICENSE -->

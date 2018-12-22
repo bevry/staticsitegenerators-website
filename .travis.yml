@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-- '10'
+- '8'
 matrix:
   fast_finish: true
   allow_failures: []
@@ -10,12 +10,12 @@ cache:
   - "$HOME/.npm"
   - "$HOME/.yarn-cache"
 install:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/node-install.bash)"
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1f4c6b3d2a0315d3fcd66e8a2cb5de31889ea87d/scripts/node-install.bash)"
 before_script:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/node-verify.bash)"
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1f4c6b3d2a0315d3fcd66e8a2cb5de31889ea87d/scripts/node-verify.bash)"
 after_success:
-- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/166faa4ea598a807629e87949e6085ef467e6560/scripts/deploy-now.bash)"
+- eval "$(curl -fsSL https://raw.githubusercontent.com/bevry/awesome-travis/1f4c6b3d2a0315d3fcd66e8a2cb5de31889ea87d/scripts/deploy-now.bash)"
 notifications:
   email:
     recipients:
-      secure: AbzB6dt8zrRjzCH46IHOvK9KFVY7bpcoN/NWpxeF9a5mJ5LudP6bR/T0Fqr1FM/+nns9ef+X7RUBcyHbo5JV6ok0ngloKGbOa7SGDKE5E0XbNxBgl5kids/JtUy8Ay4RsYyuO+HBYRU+Ogs8duDS7PqWwCSoZ2e/l9Jm2z0y8Oo=
+      secure: XgF28aNnUjoBgjUxoCi6dKn4oAHOaBqf9Ls3MpohiMXNNLNipGLL55lJ+ccj96AM0InefnJFr2MNlosNYqj5MN6ihR3nZNobKM+zaW5glB/AzhVlKUpVJK3SfljFu79/tC7YLleuEKL79sWuXUM/DAuoYEHsobxFM5Ac3mN7eiI=

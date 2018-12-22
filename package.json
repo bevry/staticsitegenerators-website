@@ -38,9 +38,17 @@
       "wishlistURL": "https://bevry.me/wishlist"
     }
   },
-  "author": "Benjamin Lupton <b@lupton.cc> (https://balupton.com)",
+  "author": "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
   "maintainers": [
-    "Benjamin Lupton <b@lupton.cc> (https://balupton.com)"
+    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
+  ],
+  "contributors": [
+    "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
+    "Misha Koryak (http://dogself.com)",
+    "Michael Westbom <mike@totallymike.org> (https://github.com/totallymike)",
+    "Dirk Ginader (http://ginader.com)",
+    "George Erickson (gee.io)",
+    "Matteo Bertini <matteo@naufraghi.net> (http://www.slug.it/naufraghi/)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators-website/issues"
@@ -52,14 +60,29 @@
   "engines": {
     "node": "8"
   },
-  "eslintConfig": {
-    "extends": [
-      "bevry"
-    ]
+  "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
+    "moment": "^2.23.0",
+    "next-server": "0.0.1",
+    "react": "^16.7.0-alpha.2",
+    "react-dom": "^16.7.0-alpha.2"
   },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
+  "devDependencies": {
+    "@types/next": "^7.0.5",
+    "@zeit/next-typescript": "^1.1.1",
+    "eslint": "^5.10.0",
+    "eslint-config-bevry": "^1.0.2",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "next": "^7.0.2",
+    "now": "^12.1.14",
+    "prettier": "^1.15.3",
+    "projectz": "^1.7.4",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
+    "typescript": "^3.2.2",
+    "typescript-eslint-parser": "^21.0.2"
   },
   "scripts": {
     "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out",
@@ -74,35 +97,21 @@
     "our:setup:npm": "npm install",
     "our:test": "npm run our:verify && npm test",
     "our:verify": "npm run our:verify:eslint && npm run our:verify:stylelint && npm run our:verify:typescript",
-    "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/**' --ignore-pattern '**/node_modules/**' --ext .js,.jsx,.ts,.tsx ./",
-    "our:verify:stylelint": "stylelint --fix './static/**/*.css'",
+    "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/' --ignore-pattern '**/node_modules/' --ext .mjs,.js,.jsx,.ts,.tsx .",
+    "our:verify:stylelint": "stylelint --fix './**/*.css'",
     "our:verify:typescript": "tsc --project .",
+    "start": "next start",
     "test": "npm run build",
     "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build"
   },
-  "devDependencies": {
-    "@types/next": "^7.0.5",
-    "@zeit/next-typescript": "^1.1.1",
-    "eslint-config-bevry": "^1.0.2",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-typescript": "^0.14.0",
-    "eslint": "^5.10.0",
-    "now": "^12.1.12",
-    "prettier": "^1.15.3",
-    "projectz": "^1.5.3",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint": "^9.9.0",
-    "typescript-eslint-parser": "^21.0.2",
-    "typescript": "^3.2.2"
+  "eslintConfig": {
+    "extends": [
+      "bevry"
+    ]
   },
-  "dependencies": {
-    "isomorphic-unfetch": "^3.0.0",
-    "moment": "^2.23.0",
-    "next": "^7.0.2",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2"
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
