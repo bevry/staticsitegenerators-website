@@ -68,7 +68,7 @@
     "react-dom": "16.7.0-alpha.2"
   },
   "devDependencies": {
-    "@types/next": "^7.0.5",
+    "@types/next": "^8.0.7",
     "@zeit/next-typescript": "^1.1.1",
     "eslint": "^5.11.0",
     "eslint-config-bevry": "^1.0.2",
