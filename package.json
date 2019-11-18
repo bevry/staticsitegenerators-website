@@ -70,7 +70,7 @@
   "devDependencies": {
     "@types/next": "^7.0.5",
     "@zeit/next-typescript": "^1.1.1",
-    "eslint": "^5.11.0",
+    "eslint": "^6.6.0",
     "eslint-config-bevry": "^1.0.2",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.0.0",
