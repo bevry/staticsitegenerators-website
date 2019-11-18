@@ -65,7 +65,7 @@
     "moment": "^2.23.0",
     "next": "^7.0.2",
     "react": "16.12.0",
-    "react-dom": "16.7.0-alpha.2"
+    "react-dom": "16.12.0"
   },
   "devDependencies": {
     "@types/next": "^7.0.5",
