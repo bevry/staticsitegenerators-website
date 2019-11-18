@@ -78,7 +78,7 @@
     "now": "^12.1.14",
     "prettier": "^1.19.1",
     "projectz": "^1.7.4",
-    "stylelint": "^9.9.0",
+    "stylelint": "^9.10.1",
     "stylelint-config-standard": "^18.2.0",
     "typescript": "^3.7.2",
     "typescript-eslint-parser": "^21.0.2"
