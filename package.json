@@ -75,7 +75,7 @@
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-typescript": "^0.14.0",
-    "now": "^12.1.14",
+    "now": "^16.6.0",
     "prettier": "^1.19.1",
     "projectz": "^1.7.4",
     "stylelint": "^9.10.1",
