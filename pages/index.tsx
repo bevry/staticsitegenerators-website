@@ -1,8 +1,8 @@
+import React, { useState } from 'react'
 import Head from 'next/head'
-import Project from '../components/project'
 import fetch from 'isomorphic-unfetch'
-import { useState } from 'react'
 import moment from 'moment'
+import Project from '../components/project'
 
 type List = Array<any>
 type Direction = -1 | 1
@@ -26,7 +26,7 @@ interface Table {
 	last?: string
 }
 
-const Index = ({ listing }: { listing: List }) => {
+export default function IndexPage({ listing }: { listing: List }) {
 	const [table, setTable] = useState<Table>({
 		columns: [
 			{
@@ -103,7 +103,7 @@ const Index = ({ listing }: { listing: List }) => {
 					content="static site generator, static site, static, site, web site, web app, app, application, web application, seo, search engine optimisation, fast, flat file, cms, content management system, nosql, node.js, ruby, javascript, python"
 				/>
 				<link rel="stylesheet" href="//unpkg.com/normalize.css/normalize.css" />
-				<link rel="stylesheet" href="/static/style.css" />
+				<link rel="stylesheet" href="/style.css" />
 			</Head>
 
 			<header className="header">
@@ -149,7 +149,7 @@ const Index = ({ listing }: { listing: List }) => {
 					>
 						Update Website
 					</a>
-					<a href="./list.json" title="Get the listing in the JSON data format">
+					<a href="/list.json" title="Get the listing in the JSON data format">
 						JSON Data
 					</a>
 				</footer>
@@ -158,11 +158,9 @@ const Index = ({ listing }: { listing: List }) => {
 	)
 }
 
-Index.getInitialProps = async () => {
-	// const res = await fetch('/list.json')
-	const res = await fetch('https://unpkg.com/staticsitegenerators@2/out.json')
+IndexPage.getInitialProps = async function() {
+	const url = 'https://staticsitegenerators.net/list.json'
+	const res = await fetch(url)
 	const json = await res.json()
 	return { listing: json }
 }
-
-export default Index

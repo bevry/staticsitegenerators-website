@@ -1,5 +1,6 @@
+import React from 'react'
 import moment from 'moment'
-const Project = ({ project }: { project: any }) => {
+export default function Project({ project }: { project: any }) {
 	const stars = project.stars ? (
 		<span>
 			{project.stars}
@@ -49,4 +50,3 @@ const Project = ({ project }: { project: any }) => {
 		</tr>
 	)
 }
-export default Project

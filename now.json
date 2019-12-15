@@ -7,8 +7,6 @@
       "src": "/",
       "headers": { "Cache-Control": "s-maxage=1800" }
     },
-    { "src": "/favicon.ico", "dest": "/static/favicon.ico" },
-    { "src": "/robots.txt", "dest": "/static/robots.txt" },
     {
       "src": "/list(.json)?",
       "status": 301,

@@ -1,29 +1,22 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "moduleResolution": "node",
     "allowJs": true,
-    "noEmit": true,
-    "strict": true,
-    "isolatedModules": false,
-    "esModuleInterop": true,
-    "maxNodeModuleJsDepth": 5,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
+    "maxNodeModuleJsDepth": 5,
     "module": "esnext",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "removeComments": false,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext",
     "skipLibCheck": true,
-    "sourceMap": true
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": [
-    "components",
-    "pages"
-  ]
+  "include": ["client", "pages", "scripts", "server", "shared"],
+  "exclude": ["node_modules"]
 }

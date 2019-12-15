@@ -1,6 +1,7 @@
 {
   "name": "staticsitegenerators-website",
   "version": "1.0.0",
+  "private": true,
   "description": "Website rendering of staticsitegenerators-list",
   "homepage": "https://github.com/bevry/staticsitegenerators-website",
   "license": "MIT",
@@ -16,11 +17,10 @@
     "list": [
       "travisci",
       "---",
+      "githubsponsors",
       "patreon",
       "flattr",
       "liberapay",
-      "thanksapp",
-      "boostlab",
       "buymeacoffee",
       "opencollective",
       "crypto",
@@ -28,6 +28,7 @@
       "wishlist"
     ],
     "config": {
+      "githubSponsorsUsername": "balupton",
       "buymeacoffeeUsername": "balupton",
       "cryptoURL": "https://bevry.me/crypto",
       "flattrUsername": "balupton",
@@ -38,6 +39,7 @@
       "wishlistURL": "https://bevry.me/wishlist"
     }
   },
+  "funding": "https://bevry.me/fund",
   "author": "Benjamin Lupton <b@lupton.cc> (http://balupton.com)",
   "maintainers": [
     "Benjamin Lupton <b@lupton.cc> (http://balupton.com)"
@@ -48,7 +50,8 @@
     "Michael Westbom <mike@totallymike.org> (https://github.com/totallymike)",
     "Dirk Ginader (http://ginader.com)",
     "George Erickson (gee.io)",
-    "Matteo Bertini <matteo@naufraghi.net> (http://www.slug.it/naufraghi/)"
+    "Matteo Bertini <matteo@naufraghi.net> (http://www.slug.it/naufraghi/)",
+    "dependabot-preview[bot] (http://github.com/apps/dependabot-preview)"
   ],
   "bugs": {
     "url": "https://github.com/bevry/staticsitegenerators-website/issues"
@@ -58,51 +61,74 @@
     "url": "https://github.com/bevry/staticsitegenerators-website.git"
   },
   "engines": {
-    "node": "8"
+    "node": ">=12"
   },
+  "editions": [
+    {
+      "description": "source",
+      "directory": ".",
+      "tags": [
+        "website",
+        "typescript",
+        "react",
+        "jsx",
+        "html",
+        "css",
+        "import"
+      ]
+    }
+  ],
+  "type": "commonjs",
   "dependencies": {
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
     "isomorphic-unfetch": "^3.0.0",
     "moment": "^2.24.0",
-    "next": "^9.1.5",
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "next": "9.1.6-canary.10",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
-    "@types/next": "^7.0.5",
-    "@zeit/next-typescript": "^1.1.1",
-    "eslint": "^5.11.0",
-    "eslint-config-bevry": "^1.0.2",
+    "@types/next": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "@zeit/next-typescript": "1.1.2-canary.0",
+    "assert-helpers": "^5.8.0",
+    "eslint": "^6.7.2",
+    "eslint-config-bevry": "^2.3.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-typescript": "^0.14.0",
-    "now": "^16.7.0",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "kava": "^4.4.0",
+    "now": "16.6.4-canary.6",
     "prettier": "^1.19.1",
     "projectz": "^1.16.0",
-    "stylelint": "^12.0.0",
-    "stylelint-config-standard": "^19.0.0",
-    "typescript": "^3.7.3",
-    "typescript-eslint-parser": "^21.0.2"
+    "typescript": "^3.7.3"
   },
   "scripts": {
-    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out",
-    "our:compile": "echo no need for this project",
+    "our:clean": "rm -Rf ./docs ./edition* ./es2015 ./es5 ./out ./.next",
+    "our:compile": "npm run our:compile:next",
+    "our:compile:next": "next build",
     "our:deploy": "echo no need for this project",
     "our:meta": "npm run our:meta:projectz",
     "our:meta:projectz": "projectz compile",
     "our:release": "npm run our:release:push",
     "our:release:prepare": "npm run our:clean && npm run our:compile && npm run our:test && npm run our:meta",
     "our:release:push": "git push origin master && git push origin --tags",
-    "our:setup": "npm run our:setup:npm",
-    "our:setup:npm": "npm install",
+    "our:setup": "npm run our:setup:install",
+    "our:setup:install": "npm install",
     "our:test": "npm run our:verify && npm test",
-    "our:verify": "npm run our:verify:eslint && npm run our:verify:stylelint && npm run our:verify:typescript",
+    "our:verify": "npm run our:verify:eslint && npm run our:verify:prettier && npm run our:verify:stylelint && npm run our:verify:typescript",
     "our:verify:eslint": "eslint --fix --ignore-pattern '**/*.d.ts' --ignore-pattern '**/vendor/' --ignore-pattern '**/node_modules/' --ext .mjs,.js,.jsx,.ts,.tsx .",
-    "our:verify:stylelint": "stylelint --fix './**/*.css'",
-    "our:verify:typescript": "tsc --project .",
-    "start": "next start",
+    "our:verify:prettier": "prettier --write ./**",
+    "our:verify:stylelint": "echo 'disabled due to https://spectrum.chat/zeit/general/resolved-deployments-fail-with-enospc-no-space-left-on-device-write~d1b9f61a-65e8-42a3-9042-f9c6a6fae6fd'",
+    "our:verify:typescript": "tsc --noEmit --project tsconfig.json",
+    "start": "npm run our:verify && next dev",
     "test": "npm run build",
     "dev": "next",
-    "build": "next build"
+    "build": "next build",
+    "now-build": "npm run our:compile:next"
   },
   "eslintConfig": {
     "extends": [
