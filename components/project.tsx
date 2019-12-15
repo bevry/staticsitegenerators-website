@@ -9,7 +9,10 @@ const Project = ({ project }: { project: any }) => {
 		''
 	)
 	const name = project.website ? (
-		<a href="{project.website}" title="Visit {project.name}&rsquo;s website">
+		<a
+			href={`${project.website}`}
+			title={`Visit ${project.name}&rsquo;s website`}
+		>
 			{project.name}
 		</a>
 	) : (
@@ -17,8 +20,8 @@ const Project = ({ project }: { project: any }) => {
 	)
 	const github = project.github ? (
 		<a
-			href="https://github.com/{project.github}"
-			title="Visit {project.name}&rsquo;s GitHub repository"
+			href={`https://github.com/${project.github}`}
+			title={`Visit ${project.name}&rsquo;s GitHub repository`}
 		>
 			<i className="icon github" />
 		</a>
