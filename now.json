@@ -8,10 +8,17 @@
       "headers": { "Cache-Control": "s-maxage=1800" }
     },
     {
-      "src": "/list(.json)?",
+      "src": "/raw(.json)?",
       "status": 301,
       "headers": {
-        "Location": "https://unpkg.com/staticsitegenerators@2/out.json"
+        "Location": "https://unpkg.com/staticsitegenerators@3/raw.json"
+      }
+    },
+    {
+      "src": "/(list|hydrated)(.json)?",
+      "status": 301,
+      "headers": {
+        "Location": "https://unpkg.com/staticsitegenerators@3/hydrated.json"
       }
     }
   ],
