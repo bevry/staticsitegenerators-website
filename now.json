@@ -11,14 +11,14 @@
       "src": "/raw(.json)?",
       "status": 301,
       "headers": {
-        "Location": "https://unpkg.com/staticsitegenerators@3/raw.json"
+        "Location": "https://unpkg.com/staticsitegenerators@next/raw.json"
       }
     },
     {
       "src": "/(list|hydrated)(.json)?",
       "status": 301,
       "headers": {
-        "Location": "https://unpkg.com/staticsitegenerators@3/hydrated.json"
+        "Location": "https://unpkg.com/staticsitegenerators@next/hydrated.json"
       }
     }
   ],
