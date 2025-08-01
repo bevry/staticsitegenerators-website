@@ -159,7 +159,7 @@ export default function IndexPage({ listing }: { listing: List }) {
 }
 
 IndexPage.getInitialProps = async function() {
-	const url = 'https://staticsitegenerators.net/list.json'
+	const url = '/list.json'
 	const res = await fetch(url)
 	const json = await res.json()
 	return { listing: json }
